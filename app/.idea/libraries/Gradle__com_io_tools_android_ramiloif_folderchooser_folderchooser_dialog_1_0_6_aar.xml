@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.io.tools.android.ramiloif.folderchooser:folderchooser-dialog:1.0.6@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/06f037c7c04142c42434600d5f68540f/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/06f037c7c04142c42434600d5f68540f/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.io.tools.android.ramiloif.folderchooser/folderchooser-dialog/1.0.6/425d476678a258b1ec8de7c42891477b1dca6ac3/folderchooser-dialog-1.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

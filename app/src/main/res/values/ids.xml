@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+
+        <!-- app_id -->
+        <string name="app_id" translatable="false">276827606579</string>
+        <!-- package_name -->
+    <!-- achievement achievement_level_1 -->
+        <string name="achievement_achievement_level_1" translatable="false">CgkIs5zYoYcIEAIQAQ</string>
+        <!-- achievement achievement_level_2 -->
+        <string name="achievement_achievement_level_2" translatable="false">CgkIs5zYoYcIEAIQAg</string>
+        <!-- achievement achievement_level_3 -->
+        <string name="achievement_achievement_level_3" translatable="false">CgkIs5zYoYcIEAIQAw</string>
+        <!-- achievement achievement_level_4 -->
+        <string name="achievement_achievement_level_4" translatable="false">CgkIs5zYoYcIEAIQBA</string>
+        <!-- achievement achievement_level_5 -->
+        <string name="achievement_achievement_level_5" translatable="false">CgkIs5zYoYcIEAIQBQ</string>
+        <!-- achievement achievement_level_6 -->
+        <string name="achievement_achievement_level_6" translatable="false">CgkIs5zYoYcIEAIQBw</string>
+        <!-- achievement achievement_level_7 -->
+        <string name="achievement_achievement_level_7" translatable="false">CgkIs5zYoYcIEAIQCA</string>
+        <!-- achievement achievement_level_8 -->
+        <string name="achievement_achievement_level_8" translatable="false">CgkIs5zYoYcIEAIQCQ</string>
+        <!-- achievement achievement_level_9 -->
+        <string name="achievement_achievement_level_9" translatable="false">CgkIs5zYoYcIEAIQCg</string>
+        <!-- achievement achievement_level_10 -->
+        <string name="achievement_achievement_level_10" translatable="false">CgkIs5zYoYcIEAIQCw</string>
+       <string name="achievement_achievement_right_answered__10" translatable="false">CgkIs5zYoYcIEAIQGw</string>
+       <!-- achievement achievement_right_answered__20 -->
+       <string name="achievement_achievement_right_answered__20" translatable="false">CgkIs5zYoYcIEAIQHA</string>
+       <!-- achievement achievement_right_answered__50 -->
+       <string name="achievement_achievement_right_answered__50" translatable="false">CgkIs5zYoYcIEAIQHQ</string>
+       <!-- achievement achievement_right_answered__100 -->
+       <string name="achievement_achievement_right_answered__100" translatable="false">CgkIs5zYoYcIEAIQHg</string>
+       <!-- achievement achievement_right_answered__200 -->
+       <string name="achievement_achievement_right_answered__200" translatable="false">CgkIs5zYoYcIEAIQHw</string>
+       <!-- achievement achievement_master_cricket_quiz -->
+       <string name="achievement_achievement_master_cricket_quiz" translatable="false">CgkIs5zYoYcIEAIQIA</string>
+       <!-- achievement achievement_master_cricket_quiz__400 -->
+       <string name="achievement_achievement_master_cricket_quiz__400" translatable="false">CgkIs5zYoYcIEAIQIQ</string>
+       <!-- achievement achievement_right_answered__500 -->
+       <string name="achievement_achievement_right_answered__500" translatable="false">CgkIs5zYoYcIEAIQIg</string>
+       <!-- leaderboard leaderboard_your_score -->
+       <string name="leaderboard_leaderboard_your_score" translatable="false">CgkIs5zYoYcIEAIQBg</string>
+        <!-- achievement achievement_level_11 -->
+    <!-- achievement achievement_level_12 -->
+    <!-- achievement achievement_level_13 -->
+    <!-- achievement achievement_level_14 -->
+    <!-- achievement achievement_level_15 -->
+    <!-- achievement achievement_level_16 -->
+    <!-- achievement achievement_level_17 -->
+    <!-- achievement achievement_level_18 -->
+    <!-- achievement achievement_level_19 -->
+    <!-- achievement achievement_level_20 -->
+    <!-- achievement achievement_level_21 -->
+    <!-- achievement achievement_level_22 -->
+    <!-- achievement achievement_level_23 -->
+    <!-- achievement achievement_level_24 -->
+    <!-- achievement achievement_level_25 -->
+    <!-- achievement achievement_right_answered__10 -->
+
+</resources>
+
+
+

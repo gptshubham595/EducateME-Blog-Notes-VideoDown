@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_dashboard"
+        android:orderInCategory="10"
+        android:title="Dashboard"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        app:showAsAction="never" />
+    <item
+        android:title="Data Sharing"
+        android:orderInCategory="10">
+
+        <menu>
+    <item
+        android:id="@+id/action_notes"
+        android:orderInCategory="100"
+        android:title="Make Notes"
+        android:icon="@android:drawable/ic_menu_edit"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_share"
+        android:orderInCategory="100"
+        android:title="Share App"
+        android:icon="@android:drawable/ic_menu_send"
+        app:showAsAction="never" />
+        </menu>
+    </item>
+    <item
+        android:title=" Tools "
+        android:orderInCategory="200">
+        <menu>
+            <item
+        android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:title="About"
+        android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="never" />
+        </menu>
+    </item>
+</menu>

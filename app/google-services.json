@@ -1,0 +1,267 @@
+{
+  "project_info": {
+    "project_number": "169793128419",
+    "firebase_url": "https://musicplayer-516df.firebaseio.com",
+    "project_id": "musicplayer-516df",
+    "storage_bucket": "musicplayer-516df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169793128419:android:4583f88eebd66eed",
+        "android_client_info": {
+          "package_name": "com.codefundo.firebasesocial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "169793128419-s91rlr0s4chn7r6pkl6h3toa0p4c69ih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codefundo.firebasesocial",
+            "certificate_hash": "7b098dcbde1dcd60ffb98e8c51475b5fdf1f3182"
+          }
+        },
+        {
+          "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy50S70Qw_BdMzZvu-QwMTdQNzvLWLnOU"
+        },
+        {
+          "current_key": "AIzaSyA4mAhvCaEo7QwFMcSciMu3Ei473rXYBqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169793128419:android:58086106ddf3b518",
+        "android_client_info": {
+          "package_name": "com.codefundo.googlemap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "169793128419-7g2p19i14tmt2ert6e1cr513h5u9cl9o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codefundo.googlemap",
+            "certificate_hash": "7b098dcbde1dcd60ffb98e8c51475b5fdf1f3182"
+          }
+        },
+        {
+          "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy50S70Qw_BdMzZvu-QwMTdQNzvLWLnOU"
+        },
+        {
+          "current_key": "AIzaSyA4mAhvCaEo7QwFMcSciMu3Ei473rXYBqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169793128419:android:f5ec91bbb5787cbf41c2d6",
+        "android_client_info": {
+          "package_name": "com.shubham"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy50S70Qw_BdMzZvu-QwMTdQNzvLWLnOU"
+        },
+        {
+          "current_key": "AIzaSyA4mAhvCaEo7QwFMcSciMu3Ei473rXYBqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169793128419:android:0fb10e9eea65ffba",
+        "android_client_info": {
+          "package_name": "com.shubham.ggps.musicplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "169793128419-3tnb07ou2fc4s15p83it4g8jpbg728a1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shubham.ggps.musicplayer",
+            "certificate_hash": "45b3a2b89b7b74987888476ceb6ea575120d122e"
+          }
+        },
+        {
+          "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy50S70Qw_BdMzZvu-QwMTdQNzvLWLnOU"
+        },
+        {
+          "current_key": "AIzaSyA4mAhvCaEo7QwFMcSciMu3Ei473rXYBqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169793128419:android:f3af9043fb228d7141c2d6",
+        "android_client_info": {
+          "package_name": "com.shubham.iitg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy50S70Qw_BdMzZvu-QwMTdQNzvLWLnOU"
+        },
+        {
+          "current_key": "AIzaSyA4mAhvCaEo7QwFMcSciMu3Ei473rXYBqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169793128419:android:e2c0ab0d0629658d41c2d6",
+        "android_client_info": {
+          "package_name": "com.swc.onestopblog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy50S70Qw_BdMzZvu-QwMTdQNzvLWLnOU"
+        },
+        {
+          "current_key": "AIzaSyA4mAhvCaEo7QwFMcSciMu3Ei473rXYBqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169793128419:android:2c27cae464b2b81f",
+        "android_client_info": {
+          "package_name": "net.simplifiedcoding.firebasephoneauthexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "169793128419-0tggc7i4vd4d0487401hfmtm7ho51i6c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.simplifiedcoding.firebasephoneauthexample",
+            "certificate_hash": "930e8e999db6d6dcfa147ca5bd63e854ccc1be03"
+          }
+        },
+        {
+          "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy50S70Qw_BdMzZvu-QwMTdQNzvLWLnOU"
+        },
+        {
+          "current_key": "AIzaSyA4mAhvCaEo7QwFMcSciMu3Ei473rXYBqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "169793128419-752qgbl86vfaj3mebf1uk8ihu4vt5bq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,41 @@
+<RelativeLayout     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:fitsSystemWindows="true"
+    tools:context="com.shubham.iitg.Url">
+
+
+<TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text=""
+        android:textSize="15sp"
+        android:gravity="center"
+        android:background="@drawable/black5"
+        android:textColor="#ffffff"
+        android:id="@+id/text"
+        android:typeface="serif"
+        />
+    <Button
+        android:layout_height="18dp"
+        android:layout_width="20dp"
+        android:background="@drawable/black5"
+        android:text="x"
+        android:textColor="#ffffff"
+        android:id="@+id/btn"
+        />
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/web"
+        android:layout_below="@id/progressBar"
+   />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:layout_below="@id/text"
+        android:progressDrawable="@drawable/bgprogress" />
+</RelativeLayout>

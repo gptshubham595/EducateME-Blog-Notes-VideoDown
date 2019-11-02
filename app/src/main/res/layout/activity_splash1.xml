@@ -1,0 +1,80 @@
+<FrameLayout android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".activity.Splash1"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v4.view.ViewPager
+        android:id = "@+id/view_pager"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        />
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="380dp"
+            android:visibility="visible"
+            android:layout_centerInParent="true"
+            android:background="@drawable/e"
+            android:id="@+id/data"
+            android:layout_height="250dp"/>
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="380dp"
+            android:id="@+id/data2"
+            android:visibility="invisible"
+            android:background="@drawable/a"
+            android:layout_centerInParent="true"
+            android:layout_height="250dp"/>
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="380dp"
+            android:visibility="invisible"
+            android:id="@+id/data3"
+            android:background="@drawable/c"
+            android:layout_centerInParent="true"
+            android:layout_height="250dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_below="@id/data"
+            android:layout_marginTop="28dp"
+            android:textSize="20sp"
+            android:text="EASY Online Note making"
+            android:textColor="#92000000"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:typeface="normal"
+            android:id="@+id/txt"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:visibility="invisible"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@android:drawable/ic_menu_send"
+            android:id="@+id/next"
+            android:backgroundTint="#FFC107"
+            android:backgroundTintMode="multiply"
+            android:layout_margin="28dp"
+            android:layout_height="50dp"/>
+
+    </RelativeLayout>
+
+    <com.github.vivchar.viewpagerindicator.ViewPagerIndicator
+        android:id = "@+id/view_pager_indicator"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_gravity = "center_horizontal|bottom"
+        android:layout_marginBottom = "20dp"
+        app:delimiterSize = "8dp"
+        app:itemScale = "1.5"
+        app:itemSelectedTint = "@color/colorAccent"
+        app:itemSize = "16dp"
+        app:itemTint = "@color/colorPrimary"
+        />
+</FrameLayout>

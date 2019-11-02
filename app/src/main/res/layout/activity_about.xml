@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/black_gradiant_bg"
+    tools:context=".activity.About">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/shubham"
+        android:layout_marginTop="60dp"
+        android:id="@+id/pic"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shubham Kumar Gupta"
+        android:textColor="#FFFF00"
+        android:textSize="25dp"
+        android:layout_marginTop="220dp"
+        android:layout_centerHorizontal="true"
+        android:typeface="serif"
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:id="@+id/username"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="( Developer )"
+        android:textColor="#FF0000"
+        android:textSize="20dp"
+        android:layout_marginTop="270dp"
+        android:layout_centerHorizontal="true"
+        android:typeface="serif"
+        android:textStyle="bold|italic"
+        android:id="@+id/dev"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CHEMICAL IIT Guwahati \n \n\n A coding geek and tech lover , programmer by heart presents you this app"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_marginTop="28dp"
+        android:textSize="15dp"
+        android:layout_below="@id/dev"
+        android:layout_centerHorizontal="true"
+        android:typeface="serif"
+        android:textStyle="italic"
+        android:id="@+id/dev2"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This App is proper combo of online videos , blog post, adnd note making,All together All in ONE PLACE, That's our Dream that's our"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_margin="8dp"
+        android:textSize="15dp"
+        android:layout_below="@id/dev2"
+        android:layout_centerHorizontal="true"
+        android:typeface="serif"
+        android:textStyle="italic"
+        android:id="@+id/dev3"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EDUCATEME"
+        android:textColor="#FFFFFF"
+        android:textSize="28dp"
+        android:layout_below="@id/dev3"
+        android:layout_centerHorizontal="true"
+        android:typeface="serif"
+        android:textStyle="bold|italic"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thanks for downloading"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:layout_centerHorizontal="true"
+        android:typeface="serif"
+        android:textStyle="bold|italic"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="my app !!"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_centerHorizontal="true"
+        android:typeface="serif"
+        android:textStyle="bold|italic"
+        />
+
+</RelativeLayout>

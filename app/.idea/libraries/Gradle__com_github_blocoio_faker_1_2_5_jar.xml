@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.blocoio:faker:1.2.5@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.blocoio/faker/1.2.5/8c4688b27dff193bd0937672c1c9a7685a0695ca/faker-1.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.blocoio/faker/1.2.5/c5aafbbc472f5573fcd3454972ead649b1c33eb/faker-1.2.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

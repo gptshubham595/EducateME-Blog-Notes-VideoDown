@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.shubham.iitg"
+    android:targetSandboxVersion="1"
+    tools:ignore="GoogleAppIndexingWarning">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:name=".notepad.NotepadApplication"
+        android:allowBackup="true"
+        android:allowClearUserData="true"
+        android:appComponentFactory="whateverString"
+        android:hardwareAccelerated="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@drawable/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/MyMaterialTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:appComponentFactory">
+        <activity android:name=".Splash2"></activity>
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".blogapp.MainActivity" />
+        <activity android:name=".blogapp.Login" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".blogapp.register" />
+        <activity android:name=".blogapp.AccounrSetup" />
+        <activity
+            android:name=".blogapp.NewPost"
+            android:parentActivityName=".blogapp.MainActivity" />
+        <activity
+            android:name=".blogapp.Comments"
+            android:parentActivityName=".blogapp.MainActivity" />
+        <activity
+            android:name=".activity.About"
+            android:parentActivityName=".blogapp.MainActivity" />
+        <activity
+            android:name=".activity.Help"
+            android:parentActivityName=".blogapp.MainActivity" />
+        <activity
+            android:name=".activity.Contact"
+            android:parentActivityName=".blogapp.MainActivity" />
+        <activity android:name="downloader.video.xvlover.videodownloader.MainActivity" />
+        <activity
+            android:name="downloader.video.xvlover.videodownloader.BookmarkActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="downloader.video.xvlover.videodownloader.MainActivity" />
+        </activity>
+        <activity
+            android:name="downloader.video.xvlover.videodownloader.SettingActivity"
+            android:label="Settings"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.EDITActivity"
+            android:parentActivityName=".blogapp.MainActivity" />
+        <activity android:name=".activity.Splash1" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Url" />
+        <activity
+            android:name=".GuidePageActivity2"
+            android:theme="@style/ShowAppTheme" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name=".notepad.note_list.NotepadListActivity"
+            android:parentActivityName=".blogapp.MainActivity"
+            android:theme="@style/AppTheme3" />
+        <activity
+            android:name=".notepad.note_edit.NoteEditActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/titleEditNote"
+            android:parentActivityName=".blogapp.MainActivity"
+            android:theme="@style/AppTheme3"
+            android:windowSoftInputMode="stateVisible"></activity>
+
+        <meta-data
+            android:name="com.google.android.backup.api_key"
+            android:value="AEdPqrEAAAAIObyer7czsjFYdiV3XL5bc8fSEb5XpS66uTZeGg" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.shubham.iitg"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="com.facebook.sdk.ApplicationId"
+                android:value="64766462375220" />
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+</manifest>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/base"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context="com.shubham.iitg.GuidePageActivity2">
+
+    <com.shubham.wowoviewpager.WoWoViewPager
+        android:id="@+id/wowo_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <View
+        android:id="@+id/circle"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-20dp"
+        android:background="@drawable/background_gray_black_circle"
+        />
+
+
+    <FrameLayout
+        android:id="@+id/login_layout"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/background_corner"
+        android:layout_gravity="center">
+
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/email"
+            app:errorEnabled="true"
+            android:visibility="visible"
+            app:met_baseColor="#000000"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+
+            android:inputType="textEmailAddress"
+            android:drawableLeft="@drawable/ic_email"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@android:color/black"
+            app:met_singleLineEllipsis="true" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="90dp"
+
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            android:layout_height="wrap_content">
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="200dp"
+                app:met_baseColor="#000000"
+                android:id="@+id/password"
+                android:inputType="textPassword"
+                android:hint="@string/password"
+                app:met_primaryColor="@android:color/black"
+                app:met_singleLineEllipsis="true"
+
+                android:textSize="20sp"
+                android:visibility="visible"
+                android:layout_height="wrap_content"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/login"
+            android:visibility="visible"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="@string/sign_in"
+
+            android:layout_marginTop="285dp"
+            android:layout_gravity="center_horizontal"/>
+        <Button
+            android:id="@+id/register"
+            android:visibility="visible"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:backgroundTint="@android:color/holo_green_dark"
+            android:text="@string/sign_up"
+
+            android:textColor="@android:color/white"
+            android:layout_marginTop="330dp"
+            android:layout_gravity="center_horizontal"/>
+        <RelativeLayout
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            >
+            <TextView
+                android:id="@+id/forgot"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot"
+                android:layout_marginTop="370dp"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="             |"
+                android:layout_marginTop="370dp"
+                android:id="@+id/bar"
+                android:layout_centerHorizontal="true"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/help"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="  Help"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="370dp"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textColor="#05502f"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="80dp"/>
+
+    <ImageView
+        android:id="@+id/planet_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/planet_target"
+        tools:ignore="ContentDescription"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/meteor"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/meteor"
+        android:layout_marginLeft="-100dp"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/planet_0"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/planet_0"
+        android:layout_marginTop="-150dp"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/planet_1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/planet_1"
+        android:layout_gravity="center_vertical|right"
+        android:layout_marginRight="-150dp"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/earth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/earth"
+        tools:ignore="ContentDescription"
+        android:visibility="invisible"/>
+
+    <com.shubham.wowoviewpager.WoWoPathView
+        android:id="@+id/path_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:wowo_pathColor="@color/rocket_fire"
+        app:wowo_pathWidth="2dp"
+        app:wowo_dynamicPath="true"
+        app:wowo_headImageSrc="@drawable/rocket"
+        app:wowo_headImageWidth="60dp"
+        />
+
+    <ImageView
+        android:id="@+id/cloud_red"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="130dp"
+        app:srcCompat="@drawable/cloud_red"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/cloud_yellow"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/cloud_yellow"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/cloud_blue"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/cloud_blue"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="150dp"
+        android:visibility="invisible"
+        tools:ignore="ContentDescription" />
+
+</FrameLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../codeforthegame2019_CRICBUZZ - Copy.iml" filepath="$PROJECT_DIR$/../codeforthegame2019_CRICBUZZ - Copy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dBPullToRefresh/dBPullToRefresh.iml" filepath="$PROJECT_DIR$/../dBPullToRefresh/dBPullToRefresh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wowoviewpager/wowoviewpager.iml" filepath="$PROJECT_DIR$/../wowoviewpager/wowoviewpager.iml" />
+    </modules>
+  </component>
+</project>

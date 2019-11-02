@@ -1,0 +1,364 @@
+<?xml version="1.0"?>
+
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <string name="app_name">EDUCATEME</string>
+    <string name="app_tagline">Supported 100+ websites</string>
+    <string name="introNew">Welcome To \n PHOTO BLOG</string>
+    <string name="login">Login</string>
+    <string name="create_new_account">Create New Account?</string>
+    <string name="welcome_to_photo_blog">Welcome To \nPHOTO BLOG</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="logout">Logout</string>
+    <string name="create_new_accounth">Create new Account?</string>
+    <string name="log_in">Log In</string>
+    <string name="submit">Submit</string>
+    <string name="name">Name</string>
+    <string name="save_account_settings">Save Account Settings</string>
+
+    <string name="action_downloads">Downloads</string>
+    <string name="rating">Give us a 5 star rating for encourage us to improve this product.</string>
+    <string name="privacy">http://www.google.com</string>
+    <string name="action_back">Back</string>
+    <string name="action_forward">Forward</string>
+    <string name="action_bookmark">Bookmark</string>
+    <string name="action_home">Home</string>
+    <string name="action_delete">Delete</string>
+    <string name="search_hint">Search or Enter URL</string>
+    <string name="title_grant">Grant</string>
+    <string name="info_permission_denied">Sorry permission denied.We can not open this app on your device, please try again later.</string>
+    <string name="format_request_permision">%1$s will need to have read/write permission your sdcard to save Files.Do you want to grant it?</string>
+
+
+    <string name="AdNetwork">Admob</string> <!-- Admob or Fan -->
+
+    <string name="AdmobBanner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="AdmobInterstitial">ca-app-pub-3940256099942544/1033173712</string>
+
+    <string name="FabBanner">FabBanner</string>
+    <string name="FabInterstitial">FabBanner</string>
+
+    <string name="title_activity_video_play">VideoPlay</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="need_a_new_account">NEED A NEW ACCOUNT ?</string>
+
+    <string name="display_name">Display Name</string>
+
+    <string name="email">Email</string>
+
+    <string name="password">Password</string>
+
+    <string name="create_account">CREATE ACCOUNT</string>
+
+    <string name="log_out">Log Out</string>
+
+    <string name="username">Username</string>
+
+    <string name="guide_page">Guide Page</string>
+
+    <string name="presents">presents</string>
+
+    <string name="forgot">Forgot Password</string>
+
+    <string name="sign_up">Sign Up</string>
+
+    <string name="sign_in">Sign In</string>
+
+    <string name="facebook_app_id">64766462375220</string>
+
+    <string name="fb_login_protocol_scheme">fb64766462375220</string>
+
+
+    <string name="emailreq">- Enter your mail id to register . \n eg: example@test.com </string>
+
+    <string name="passreq">- Enter your password to register . \n eg: 12345678 </string>
+
+    <string name="loginreq">- After confirming mail just click sign in. </string>
+
+    <string name="registerreq">- Enter mail and password and press sign up \n also confirm your account via mail id. </string>
+
+    <string name="forgotreq">- Enter mail and press forgot option \n check mail for changing password </string>
+
+    <string name="action_Disclaimer">Disclaimer</string>
+
+    <string name="action_search">Search</string>
+
+    <string name="drawer_open">Open</string>
+
+    <string name="drawer_close">Close</string>
+
+    <string name="nav_item_home">Live Cricket</string>
+
+    <string name="nav_item_friends">Recent match</string>
+
+    <string name="nav_item_IPL">IPL</string>
+
+    <string name="nav_item_notifications">Latest News</string>
+    <string name="title_activity_notepad_list">Notepad</string>
+    <!-- &#8230; stands for "..." -->
+    <string name="titleEditNote">Edit note&#8230;</string>
+    <string name="menu_insert">Create note</string>
+    <string name="newNote">Create note</string>
+    <string name="saveNote">Save</string>
+    <string name="sampleItem">Sample item</string>
+    <string name="deleteNote">Delete</string>
+    <string name="revertChanges">Revert changes</string>
+    <string name="listEmpty">List is empty</string>
+    <string name="share">Share</string>
+    <string name="newPaste">Paste from clipboard</string>
+    <string name="contextEdit">Edit note</string>
+    <string name="contextDelete">Delete</string>
+    <string name="contextDuplicate">Duplicate</string>
+    <string name="dialogDeleteNote">Delete note?</string>
+    <string name="dialogRevertChanges">Revert all changes since last save?</string>
+    <string name="dialogDeleteSelected">Delete selected note?</string>
+    <string name="toastAlreadyPasted">Note with this content already pasted</string>
+    <string name="toastClipboardNotText">Clipboard data is not in text format</string>
+    <string name="toastClipboardEmpty">Clipboard is empty</string>
+    <string name="shareEntityName">Note</string>
+    <string name="sharePromptText">Share note</string>
+    <string name="toastNoteDeleted">Note deleted</string>
+    <string name="toastNoteSaved">Note saved!</string>
+
+    <string name="toastNoteCopied" translatable="false">Note copied to clipboard</string>
+    <string name="toastNoteDuplicated" translatable="false">Note duplicated</string>
+
+
+    <string name="sign_out">Sign out</string>
+
+    <!-- navigation drawer item labels -->
+
+
+    -
+    <string-array name="nav_drawer_labels">
+
+        <item>@string/nav_item_home</item>
+
+        <item>@string/nav_item_friends</item>
+
+        <item>@string/nav_item_IPL</item>
+
+        <item>@string/nav_item_notifications</item>
+
+        <item>"WC2019 Score Table"</item>
+        <item>"See Live WC2019"</item>
+        <item>"FAQ"</item>
+        <item>@string/about</item>
+        <item>"Share"</item>
+        <item>@string/sign_out</item>
+
+    </string-array>
+
+    <string name="about_msg">A small project inspired by DREAM11 to make this DREAMIITG.</string>
+
+    <string name="disclaimer_msg">This App based on Cricbuzz Api all Online Public Data Fetching from cricbuzz,Hence We are Not Violating Any Terms.</string>
+
+    <string name="title_messages">Latest News</string>
+
+    <string name="title_friends">Recent match</string>
+
+    <string name="title_home">DREAMIITG</string>
+
+    <string name="title_IPL">IPL</string>
+
+    <string name="title_activity_full_scoreboard">full_scoreboard</string>
+
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="title_ok">OK</string>
+
+    <string name="title_cancel">Cancel</string>
+
+    <string name="title_warning">Warning</string>
+
+    <string name="title_settings">Setting</string>
+
+
+    -
+    <string-array name="list_share">
+
+        <item>Disclaimer</item>
+
+    </string-array>
+
+    <string name="info_lose_internet">No internet connection.Please check again!</string>
+
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="title_activity_about_us">About Us</string>
+
+
+    <string name="error">Error</string>
+
+    <string name="cancelled">Cancelled</string>
+
+    <string name="permission_not_granted">Permission not granted</string>
+
+    <string name="success">Success</string>
+
+    <string name="successfully_posted_post">Successfully posted post</string>
+
+    <string name="enter_by_double_tap">Enter by double tap</string>
+
+    <string name="no_image">No Image</string>
+
+    <string name="title_activity_ads">AdsActivity</string>
+
+    <string name="title_activity_last_screen">LastScreen</string>
+    <string name="faq"><u>FAQ</u></string>
+
+
+    <string name="action_logout">Logout</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="text_bio_data">Bio Data</string>
+    <string name="text_fullname">Full Name</string>
+    <string name="text_b_date">Birth Date</string>
+    <string name="text_rollno">Roll Number</string>
+    <string name="text_standard">Standard</string>
+    <string name="text_branch">Branch</string>
+    <string name="text_semester">Semester</string>
+    <string name="text_division">Division</string>
+    <string name="text_contact_details">Contact Details</string>
+    <string name="text_address">Address</string>
+    <string name="text_parent_contact">Parent Contact</string>
+    <string name="text_city">City</string>
+    <string name="text_batch">Batch</string>
+    <!-- Strings related to Menu -->
+    <string name="menu_profile">Profile</string>
+    <string name="menu_attendence">Attendence</string>
+    <string name="menu_exam">Exam</string>
+    <string name="menu_result">Result</string>
+    <string name="menu_teacher">Teacher</string>
+    <string name="menu_growth">Growth</string>
+    <string name="menu_holiday">Holiday</string>
+    <string name="menu_news">News &amp; Event</string>
+    <string name="menu_notice">Notice</string>
+    <string name="title_activity_attendence">Attendence</string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_message">Message</string>
+    <string name="action_sign_in">Sign in </string>
+    <string name="action_sign_in_note"><b>Note</b> </string>
+    <string name="action_sign_in_note_text">student login provided by school to authanticated student.</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions." </string>
+    <string name="title_activity_result">Result</string>
+    <string name="title_activity_exam">Exams</string>
+    <string name="title_activity_teacher">Teachers</string>
+    <string name="title_activity_growth">Growth</string>
+    <string name="title_activity_holidays">Holidays</string>
+    <string name="title_activity_news">News And Events</string>
+    <string name="title_activity_notice">Notice</string>
+    <string name="title_activity_enquiry">Enquiry</string>
+
+    <string name="prompt_subject">Subject</string>
+    <string name="title_activity_result_list">Result Details</string>
+    <string name="title_activity_top_student">Top Student</string>
+    <string name="main_activity_logout">Logout Sucessfull</string>
+    <string name="permission_required">App required some permission please enable it</string>
+    <string name="fire">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="attendence_show">SHOW</string>
+    <string name="enquiry_add_message"> + New message</string>
+    <string name="content_result_list_student_name">Student Name : </string>
+    <string name="content_result_list_exam_title">Exam Title</string>
+    <string name="content_result_list_date">01/12/2016</string>
+    <string name="content_result_list_subject">Subject</string>
+    <string name="content_result_list_total_marks">Total Marks</string>
+    <string name="content_result_list_marks">Marks</string>
+    <string name="content_result_list_obtain">Obtain</string>
+    <string name="content_result_list_perstage">50%</string>
+    <string name="dialog_attend_note_attendance_note">Attendance Note</string>
+    <string name="dialog_enquiry_message">Enquiry Message</string>
+    <string name="row_for_event_title">Title</string>
+    <string name="row_for_event_start_date">Start Date</string>
+    <string name="row_for_event_end_date">End Date</string>
+    <string name="row_for_event_new_text">New Text</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <string name="note_title_hint">Enter a title for the note.</string>
+    <string name="note_text_hint">Enter text content for the note.</string>
+    <string name="note_title_label">Title</string>
+    <string name="note_text_label">Text</string>
+    <string name="note_details_label">Details</string>
+    <string name="note_complete_label">Complete?</string>
+    <string name="notes_title">Notes</string>
+    <string name="date_picker_title">Date of Note:</string>
+    <string name="note_media">Media</string>
+    <string name="note_play">Play</string>
+    <string name="note_stop">Stop</string>
+    <string name="note_pause">Pause</string>
+    <string name="note_record">Record</string>
+    <string name="error_no_mic">No mic found</string>
+    <string name="error_no_camera">No camera found</string>
+    <string name="error_saving">Error while saving</string>
+
+    <string name="show_subtitle">Show Subtitle</string>
+    <string name="hide_subtitle">Hide Subtitle</string>
+    <string name="subtitle">Remember Everything</string>
+    <string name="delete_note">Delete</string>
+    <string name="notes_deleted">Note(s) Deleted</string>
+    <string name="capture">Capture</string>
+    <string name="menu">menu</string>
+    <string name="settings">Preferences</string>
+    <string name="about">About</string>
+    <string name="exit_message">Press again to exit</string>
+    <string name="new_category">New category</string>
+    <string name="empty">empty</string>
+    <string name="no_categories">No categories found!</string>
+    <string name="no_notes">No notes found!</string>
+    <string name="no_categories_desc">Create a new category to start\ntaking notes</string>
+    <string name="no_notes_desc">Start taking notes by creating\na new one</string>
+    <string name="no_notes_hint">No notes</string>
+    <string name="one_note">1 note</string>
+    <string name="counter_note">%1$d notes</string>
+    <string name="title">Title</string>
+    <string name="choose_a_color">Choose a color:</string>
+    <string name="create">Create</string>
+
+    <string name="theme">theme</string>
+    <string name="edit_category">Edit category</string>
+    <string name="edit">Edit</string>
+    <string name="undo">Undo</string>
+    <string name="back">back</string>
+    <string name="new_note">New note</string>
+    <string name="tool">tool</string>
+    <string name="start_drawing">Start drawing</string>
+    <string name="permission">Permission</string>
+    <string name="storage_permission">Notes needs to access your external storage to store data.</string>
+    <string name="request">Request</string>
+    <string name="permission_error">Permission not granted</string>
+    <string name="permission_error_desc">Notes might work incorrectly without permission to access the external storage.</string>
+    <string name="continue_anyway">Continue anyway</string>
+    <string name="permission_granted">Permission granted</string>
+    <string name="backup">Backup data</string>
+    <string name="restore">Restore data</string>
+    <string name="new_folder">New folder</string>
+    <string name="choose">Choose</string>
+    <string name="ok">OK</string>
+    <string name="delete">Delete</string>
+    <string name="required">This field is required</string>
+    <string name="icon">icon</string>
+    <string name="no_mounted_sd">No SD-Card was found</string>
+    <string name="backup_saved">Backup data were saved at %1$s</string>
+    <string name="backup_error">Backup error</string>
+    <string name="data_restored">Back data were successfully restored.</string>
+    <string name="restore_error">Restore error</string>
+    <string name="not_implemented">This section has not been implemented for the beta version.</string>
+    <string name="about_desc">A simple note taking app</string>
+    <string name="share_app_text">Transforming the Future</string>
+    <string name="lorem">lorem</string>
+    <string name="download">This is a video downloader: \n  \n 1)Select any website  \n \n  2) Search for a video \n \n 3)Click on Download Button</string>
+</resources>
