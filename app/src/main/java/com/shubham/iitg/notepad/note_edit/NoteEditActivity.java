@@ -3,8 +3,10 @@ package com.shubham.iitg.notepad.note_edit;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.core.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -65,7 +67,7 @@ public class NoteEditActivity extends AppCompatActivity implements ConfirmationD
 	
 	void setupActionBar()
 	{
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 	}
 	

@@ -6,8 +6,10 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
-import androidx.core.app.DialogFragment;
+
 import android.view.ContextThemeWrapper;
+
+import androidx.fragment.app.DialogFragment;
 
 import com.shubham.iitg.R;
 
