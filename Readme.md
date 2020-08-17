@@ -27,7 +27,7 @@ EDUCATEME involves education videos, blogs , video downloader, app sharer, note 
 
 1) Import git repo via this command
 ```
-git clone https://github.com/gptshubham595/siang.git
+git clone https://github.com/gptshubham595/EducateME-Blog-Notes-VideoDown.git
 ```
 2) Build the app
 3) This generates a android release APK
@@ -36,7 +36,7 @@ git clone https://github.com/gptshubham595/siang.git
 **APK For Android **
 
 ```
-https://github.com/gptshubham595/siang/blob/master/app/release/app-release.apk
+https://github.com/gptshubham595/EducateME-Blog-Notes-VideoDown/blob/master/app/release/app-release.apk
 ```
 
 
