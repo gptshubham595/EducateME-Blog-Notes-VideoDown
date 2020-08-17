@@ -1,0 +1,27 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml:2:1-10:12
+INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml:2:1-10:12
+INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml:2:1-10:12
+	package
+		ADDED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml:3:5-49
+		INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml:8:5-20
+uses-sdk
+INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
+INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
+INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
+INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
+		ADDED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
+		ADDED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\siang2\dBPullToRefresh\src\main\AndroidManifest.xml
