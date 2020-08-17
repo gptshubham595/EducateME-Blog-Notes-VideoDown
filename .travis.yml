@@ -1,0 +1,29 @@
+language: android
+sudo: false
+android:
+    components:
+        - tools
+        - build-tools-30.0.3
+        - android-30
+
+        # Additional components
+        - extra-google-google_play_services
+        - extra-google-m2repository
+        - extra-android-m2repository
+        - extra-android-support
+        - addon-google_apis-google-30
+
+        # Specify at least one system image,
+        # if you need to run emulator(s) during your tests
+        - sys-img-armeabi-v7a-android-30
+        - sys-img-x86-android-30
+
+# Emulator Management: Create, Start and Wait
+#before_script:
+#  - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
+#  - emulator -avd test -no-skin -no-audio -no-window &
+#  - android-wait-for-emulator
+#  - adb shell input keyevent 82 &
+
+script:
+    - ./gradlew clean assembleAndroidTest
