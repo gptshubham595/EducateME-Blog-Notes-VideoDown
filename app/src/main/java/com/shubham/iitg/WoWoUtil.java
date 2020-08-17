@@ -2,17 +2,11 @@ package com.shubham.iitg;
 
 import android.content.Context;
 import android.graphics.Point;
-import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Display;
 
-/**
- * Created by Weiping Huang at 23:40 on 2016/3/3
- * For Personal Open Source
- * Contact me at 2584541288@qq.com or nightonke@outlook.com
- * For more projects: https://github.com/Nightonke
- *
- */
+import androidx.appcompat.app.AppCompatActivity;
+
 
 class WoWoUtil {
 
@@ -21,12 +15,13 @@ class WoWoUtil {
 
     /**
      * get the screen width in pixels
+     *
      * @param context
      * @return
      */
     public static int getScreenWidth(Context context) {
         if (screenWidth == -1) {
-            Display display = ((AppCompatActivity)context).getWindowManager().getDefaultDisplay();
+            Display display = ((AppCompatActivity) context).getWindowManager().getDefaultDisplay();
             Point size = new Point();
             display.getSize(size);
             screenWidth = size.x;
@@ -36,12 +31,13 @@ class WoWoUtil {
 
     /**
      * get the screen height in pixels
+     *
      * @param context
      * @return
      */
     public static int getScreenHeight(Context context) {
         if (screenHeight == -1) {
-            Display display = ((AppCompatActivity)context).getWindowManager().getDefaultDisplay();
+            Display display = ((AppCompatActivity) context).getWindowManager().getDefaultDisplay();
             Point size = new Point();
             display.getSize(size);
             screenHeight = size.y;
@@ -51,6 +47,7 @@ class WoWoUtil {
 
     /**
      * dp to px
+     *
      * @param dp
      * @param mContext
      * @return

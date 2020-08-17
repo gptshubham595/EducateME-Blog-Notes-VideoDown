@@ -1,9 +1,10 @@
 package com.shubham.wowoviewpager;
 
 import android.graphics.Color;
-import androidx.core.app.Fragment;
-import androidx.core.app.FragmentManager;
-import androidx.core.app.FragmentStatePagerAdapter;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +14,6 @@ import java.util.Arrays;
  * For Personal Open Source
  * Contact me at 2584541288@qq.com or nightonke@outlook.com
  * For more projects: https://github.com/Nightonke
- *
  */
 
 public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
@@ -95,6 +95,7 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
     /**
      * set resource of color of fragments
+     *
      * @param colorRes resource of color of fragments
      */
     public void setColorRes(int colorRes) {
@@ -110,6 +111,7 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
     /**
      * set color of fragments
+     *
      * @param color color of fragments
      */
     public void setColor(Integer color) {
@@ -121,6 +123,7 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
     /**
      * set resources of colors of fragments
+     *
      * @return resources of colors of fragments
      */
     public ArrayList<Integer> getColorsRes() {
@@ -133,6 +136,7 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
     /**
      * set resources of colors of fragments
+     *
      * @param colorsRes resources of colors of fragments
      */
     public void setColorsRes(ArrayList<Integer> colorsRes) {
@@ -148,6 +152,7 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
     /**
      * set colors of fragments
+     *
      * @param colors colors
      */
     public void setColors(Integer... colors) {
@@ -156,6 +161,7 @@ public class WoWoViewPagerAdapter extends FragmentStatePagerAdapter {
 
     /**
      * set colors of fragments
+     *
      * @param colors colors
      */
     public void setColors(ArrayList<Integer> colors) {

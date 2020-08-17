@@ -4,14 +4,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.shubham.iitg.R;
 
@@ -22,39 +23,40 @@ import downloader.video.xvlover.videodownloader.utils.iUtils;
 
 
 public class BookmarkActivity extends AppCompatActivity implements iConstants {
-        ListView lv;
+    ListView lv;
     SharedPreferences pref;
     Map<String, ?> bmList;
     ArrayAdapter adapter;
     String[] listItems;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bookmarkdown);
         getSupportActionBar().setTitle("Bookmarks");
         getSupportActionBar().show();
-        lv=(ListView)findViewById(R.id.ListView);
+        lv = (ListView) findViewById(R.id.ListView);
         pref = getSharedPreferences(PREF_APPNAME, 0);
-        bmList=pref.getAll();
-       listItems = new String[bmList.size()];
+        bmList = pref.getAll();
+        listItems = new String[bmList.size()];
 
-       // bmList.toString();
-            int i=0;
+        // bmList.toString();
+        int i = 0;
         for (Map.Entry<String, ?> entry : bmList.entrySet()) {
             //Log.d("map values", entry.getKey() + ": " + entry.getValue().toString());
 
-           listItems[i] = entry.getKey();
+            listItems[i] = entry.getKey();
 
             i++;
         }
-       adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems);
         lv.setAdapter(adapter);
 
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 String uri = "";
-                 uri=listItems[position];
-                iUtils.ShowToast(BookmarkActivity.this,uri);
+                uri = listItems[position];
+                iUtils.ShowToast(BookmarkActivity.this, uri);
 
                 Intent intent = new Intent(BookmarkActivity.this, MainActivity.class);
                 Bundle b = new Bundle();
@@ -65,17 +67,20 @@ public class BookmarkActivity extends AppCompatActivity implements iConstants {
             }
         });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.bookmarks, menu);
         return true;
     }
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
 
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -92,13 +97,14 @@ public class BookmarkActivity extends AppCompatActivity implements iConstants {
 
                         public void onClick(DialogInterface dialog, int whichButton) {
 
-                        pref.edit().clear().commit();
+                            pref.edit().clear().commit();
 
-iUtils.ShowToast(BookmarkActivity.this,"Deleted!");
+                            iUtils.ShowToast(BookmarkActivity.this, "Deleted!");
                             finish();
-                        }})
+                        }
+                    })
                     .setNegativeButton(android.R.string.no, null).show();
-            return  true;
+            return true;
         }
 
 

@@ -3,8 +3,9 @@ package downloader.video.xvlover.videodownloader.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -27,7 +28,7 @@ public class JSONParser {
     static InputStream iStream = null;
     static JSONArray jarray = null;
     static String jarrayq = null;
-    static JSONObject jarrayo=null;
+    static JSONObject jarrayo = null;
     static String json = "";
 
     public JSONParser() {
@@ -61,7 +62,7 @@ public class JSONParser {
 
         // Parse String to JSON object
         try {
-            jarray = new JSONArray( builder.toString());
+            jarray = new JSONArray(builder.toString());
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
@@ -70,6 +71,7 @@ public class JSONParser {
         return jarray;
 
     }
+
     public JSONObject getOJSONFromUrl(String url) {
 
         StringBuilder builder = new StringBuilder();
@@ -98,7 +100,7 @@ public class JSONParser {
 
         // Parse String to JSON object
         try {
-            jarrayo = new JSONObject( builder.toString());
+            jarrayo = new JSONObject(builder.toString());
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
@@ -107,12 +109,13 @@ public class JSONParser {
         return jarrayo;
 
     }
+
     public String getSJSONFromUrl(String url) {
 
         StringBuilder builder = new StringBuilder();
         HttpClient client = new DefaultHttpClient();
         HttpGet httpGet = new HttpGet(url);
-        httpGet.addHeader("header-name" , "header-value");
+        httpGet.addHeader("header-name", "header-value");
 
         try {
             HttpResponse response = client.execute(httpGet);
@@ -140,6 +143,7 @@ public class JSONParser {
         return jarrayq;
 
     }
+
     public static boolean isNetworkAvailable(AppCompatActivity activity) {
         ConnectivityManager connectivity = (ConnectivityManager) activity
                 .getSystemService(Context.CONNECTIVITY_SERVICE);

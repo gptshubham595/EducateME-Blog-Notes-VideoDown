@@ -14,19 +14,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.core.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Gravity;
@@ -55,7 +42,20 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.codemybrainsout.ratingdialog.RatingDialog;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.shashank.sony.fancytoastlib.FancyToast;
 import com.shubham.iitg.R;
 
@@ -76,8 +76,8 @@ import static downloader.video.xvlover.videodownloader.utils.iUtils.GetSessionID
 
 
 public class MainActivity extends AppCompatActivity
-        implements iConstants, NavigationView.OnNavigationItemSelectedListener  {
-     private String postUrl = "http://www.google.com";
+        implements iConstants, NavigationView.OnNavigationItemSelectedListener {
+    private String postUrl = "http://www.google.com";
     private WebView webView;
     private ProgressBar progressBar;
     private float m_downX;
@@ -92,17 +92,18 @@ public class MainActivity extends AppCompatActivity
     private View webViewCon;
     private String SessionID;
     SharedPreferences sharedPrefs;
-    public Boolean WebviewLoaded=false;
+    public Boolean WebviewLoaded = false;
     String URL;
     GridView HomeView;
     Toolbar toolbar;
-    String AdNetwork,FBannerID,FInterstitialID,ABannerID,AInterstitialID;
+    String AdNetwork, FBannerID, FInterstitialID, ABannerID, AInterstitialID;
     Boolean YTe = false;
     JSONArray Hint_uri;
 
-RelativeLayout adViewContainer;
+    RelativeLayout adViewContainer;
     public static final int REQUEST_PERMISSION_CODE = 1001;
     public static final String REQUEST_PERMISSION = android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,19 +111,19 @@ RelativeLayout adViewContainer;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 
-        FancyToast.makeText(MainActivity.this,getString(R.string.download),FancyToast.LENGTH_LONG, FancyToast.WARNING,false ).show();
-        FancyToast.makeText(MainActivity.this,getString(R.string.download),FancyToast.LENGTH_LONG, FancyToast.WARNING,false ).show();
-        FancyToast.makeText(MainActivity.this,getString(R.string.download),FancyToast.LENGTH_LONG, FancyToast.WARNING,false ).show();
+        FancyToast.makeText(MainActivity.this, getString(R.string.download), FancyToast.LENGTH_LONG, FancyToast.WARNING, false).show();
+        FancyToast.makeText(MainActivity.this, getString(R.string.download), FancyToast.LENGTH_LONG, FancyToast.WARNING, false).show();
+        FancyToast.makeText(MainActivity.this, getString(R.string.download), FancyToast.LENGTH_LONG, FancyToast.WARNING, false).show();
 
         setSupportActionBar(toolbar);
         webView = (WebView) findViewById(R.id.webView);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        SearchText=(AutoCompleteTextView) findViewById(R.id.SearchText);
+        SearchText = (AutoCompleteTextView) findViewById(R.id.SearchText);
         SearchText.setSelectAllOnFocus(true);
-         bottomSheet = findViewById(R.id.design_bottom_sheet);
-           HomeView = (GridView) findViewById(R.id.HomePage);
-        webViewCon=(View)findViewById(R.id.webViewCon);
-         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        bottomSheet = findViewById(R.id.design_bottom_sheet);
+        HomeView = (GridView) findViewById(R.id.HomePage);
+        webViewCon = (View) findViewById(R.id.webViewCon);
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         OnPrepareBottomNav(bottomNavigationView.getMenu());
         HomeView.setAdapter(new SitesAdapter(this));
@@ -131,39 +132,39 @@ RelativeLayout adViewContainer;
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
-               GetSessionID(MainActivity.this);
-                 AdNetwork=getString(R.string.AdNetwork);
-                ABannerID=getString(R.string.AdmobBanner);
-                AInterstitialID=getString(R.string.AdmobInterstitial);
-                FBannerID=getString(R.string.FabBanner);
-                FInterstitialID=getString(R.string.FabInterstitial);
-              //  Hint_uri=config.getJSONArray("Hint_url");
-                SharedPreferences.Editor editor = getSharedPreferences("AppConfig", MODE_PRIVATE).edit();
-                editor.putString("AdNetwork",  AdNetwork);
-                editor.putString("ABannerID", ABannerID);
-                editor.putString("AInterstitialID", AInterstitialID);
-                editor.putString("FBannerID", FBannerID);
-                editor.putString("FInterstitialID", FInterstitialID);
-                editor.apply();
-               // iUtils.ShowToast(MainActivity.this,AdNetwork);
-                HintSet();
-                loadBannerAd();
-                loadInterstitialAd();
-             //   new FanInterstitial().LoadAd(MainActivity.this, FInterstitialID,true);
+        GetSessionID(MainActivity.this);
+        AdNetwork = getString(R.string.AdNetwork);
+        ABannerID = getString(R.string.AdmobBanner);
+        AInterstitialID = getString(R.string.AdmobInterstitial);
+        FBannerID = getString(R.string.FabBanner);
+        FInterstitialID = getString(R.string.FabInterstitial);
+        //  Hint_uri=config.getJSONArray("Hint_url");
+        SharedPreferences.Editor editor = getSharedPreferences("AppConfig", MODE_PRIVATE).edit();
+        editor.putString("AdNetwork", AdNetwork);
+        editor.putString("ABannerID", ABannerID);
+        editor.putString("AInterstitialID", AInterstitialID);
+        editor.putString("FBannerID", FBannerID);
+        editor.putString("FInterstitialID", FInterstitialID);
+        editor.apply();
+        // iUtils.ShowToast(MainActivity.this,AdNetwork);
+        HintSet();
+        loadBannerAd();
+        loadInterstitialAd();
+        //   new FanInterstitial().LoadAd(MainActivity.this, FInterstitialID,true);
 
-        adViewContainer = (RelativeLayout)findViewById(R.id.adViewContainer);
+        adViewContainer = (RelativeLayout) findViewById(R.id.adViewContainer);
         HomeView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-        webView.loadUrl(HomePageURI[position]);
-                WebviewLoaded=false;
-        SwithcView(true);
+                webView.loadUrl(HomePageURI[position]);
+                WebviewLoaded = false;
+                SwithcView(true);
             }
         });
 
 
-        AdblockEnabled=sharedPrefs.getBoolean("ADBLOCK",true);
+        AdblockEnabled = sharedPrefs.getBoolean("ADBLOCK", true);
         bottomNavigationView.setOnNavigationItemSelectedListener
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -174,13 +175,13 @@ RelativeLayout adViewContainer;
                                 SwithcView(false);
                                 break;
                             case R.id.action_bookmark:
-                                iUtils.bookmarkUrl(MainActivity.this,webView.getUrl());
-                                if(iUtils.isBookmarked(MainActivity.this,webView.getUrl())){
+                                iUtils.bookmarkUrl(MainActivity.this, webView.getUrl());
+                                if (iUtils.isBookmarked(MainActivity.this, webView.getUrl())) {
 
                                     item.setIcon(R.drawable.ic_bookmark_grey_800_24dp);
                                     item.getIcon().setAlpha(255);
-                                    iUtils.ShowToast(MainActivity.this,"Bookmarked");
-                                }else{
+                                    iUtils.ShowToast(MainActivity.this, "Bookmarked");
+                                } else {
                                     item.setIcon(R.drawable.ic_bookmark_border_grey_800_24dp);
                                     item.getIcon().setAlpha(130);
 
@@ -202,29 +203,30 @@ RelativeLayout adViewContainer;
         //WebView
         initWebView();
 
-     //   webView.loadUrl(postUrl);
+        //   webView.loadUrl(postUrl);
 
 
         SearchText.setText(webView.getUrl());
         SearchText.setSelected(false);
         isNeedGrantPermission();
         //Floating Button :)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setVisibility(View.GONE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GeneratingDownloadLinks.Start(MainActivity.this,webView.getUrl(),webView.getTitle());
-               // showInterstitial();
+                GeneratingDownloadLinks.Start(MainActivity.this, webView.getUrl(), webView.getTitle());
+                // showInterstitial();
 
             }
         });
-        if(intent.hasExtra("URL")){
+        if (intent.hasExtra("URL")) {
             URL = extras.getString("URL");
 
-            if(!URL.equals("")){
+            if (!URL.equals("")) {
                 LoadFromIntent(URL);
-            }}
+            }
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -249,26 +251,26 @@ RelativeLayout adViewContainer;
         SearchText.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if ( (i == EditorInfo.IME_ACTION_DONE) || ((keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) && (keyEvent.getAction() == KeyEvent.ACTION_DOWN ))){
+                if ((i == EditorInfo.IME_ACTION_DONE) || ((keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) && (keyEvent.getAction() == KeyEvent.ACTION_DOWN))) {
                     String url = SearchText.getText().toString();
-                      //  iUtils.ShowToast(MainActivity.this,url);
+                    //  iUtils.ShowToast(MainActivity.this,url);
                     SearchText.clearFocus();
                     SwithcView(true);
-                    InputMethodManager in = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     in.hideSoftInputFromWindow(SearchText.getWindowToken(), 0);
-                    if(iUtils.checkURL(url)){
-                     //   iUtils.ShowToast(MainActivity.this,url);
-                        if(!url.startsWith("http://") && !url.startsWith("https://")) {
+                    if (iUtils.checkURL(url)) {
+                        //   iUtils.ShowToast(MainActivity.this,url);
+                        if (!url.startsWith("http://") && !url.startsWith("https://")) {
                             url = "http://" + url;
-                            }
+                        }
 
                         webView.loadUrl(url);
-                        WebviewLoaded=false;
+                        WebviewLoaded = false;
                         SearchText.setText(webView.getUrl());
-                    }else{
-                        String Searchurl = String.format(SEARCH_ENGINE,url);
+                    } else {
+                        String Searchurl = String.format(SEARCH_ENGINE, url);
                         webView.loadUrl(Searchurl);
-                        WebviewLoaded=false;
+                        WebviewLoaded = false;
                         SearchText.setText(webView.getUrl());
                     }
                     return true;
@@ -280,60 +282,62 @@ RelativeLayout adViewContainer;
         });
 
 
-
         SearchText.setOnFocusChangeListener(focusListener);
     }
+
     private View.OnFocusChangeListener focusListener = new View.OnFocusChangeListener() {
         public void onFocusChange(View v, boolean hasFocus) {
-            if (hasFocus){
+            if (hasFocus) {
                 SearchHasFocus = true;
             } else {
                 SearchHasFocus = false;
             }
         }
     };
-    public void UpdateUi(){
+
+    public void UpdateUi() {
 
         String WebUrl = webView.getUrl();
         String SearchUrl = SearchText.getText().toString();
-      //  iUtils.ShowToast(MainActivity.this,WebUrl);
-if(!SearchHasFocus) {
+        //  iUtils.ShowToast(MainActivity.this,WebUrl);
+        if (!SearchHasFocus) {
 //    if (!WebUrl.equals(SearchUrl)) {
-if(WebviewLoaded) {
-    SearchText.setText(WebUrl);
+            if (WebviewLoaded) {
+                SearchText.setText(WebUrl);
 
 
-    OnPrepareBottomNav(bottomNavigationView.getMenu());
-}
-}
+                OnPrepareBottomNav(bottomNavigationView.getMenu());
+            }
+        }
 
     }
 
 
-    private  void  LoadFromIntent(String url){
+    private void LoadFromIntent(String url) {
         SwithcView(true);
         webView.loadUrl(url);
-        WebviewLoaded=false;
+        WebviewLoaded = false;
     }
-    private void SwithcView(Boolean show){
+
+    private void SwithcView(Boolean show) {
         CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) adViewContainer.getLayoutParams();
 
 
         //RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams(30,30); //Parent Params
 
 
-        if(show){
-            lp.setMargins(0,0,0,0);
+        if (show) {
+            lp.setMargins(0, 0, 0, 0);
             lp.gravity = Gravity.BOTTOM;
             adViewContainer.setLayoutParams(lp);
             webViewCon.setVisibility(View.VISIBLE);
             HomeView.setVisibility(View.GONE);
             fab.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             webViewCon.setVisibility(View.GONE);
             HomeView.setVisibility(View.VISIBLE);
-          // iUtils.ShowToast(this,String.valueOf(toolbar.getHeight()));
-           lp.setMargins(0,toolbar.getHeight(),0,0);
+            // iUtils.ShowToast(this,String.valueOf(toolbar.getHeight()));
+            lp.setMargins(0, toolbar.getHeight(), 0, 0);
             lp.gravity = Gravity.TOP;
             adViewContainer.setLayoutParams(lp);
             webView.stopLoading();
@@ -344,8 +348,9 @@ if(WebviewLoaded) {
 
 
     }
-    private void HintSet(){
-       final  String[] WEBSITES = getStringArray(Hint_uri);
+
+    private void HintSet() {
+        final String[] WEBSITES = getStringArray(Hint_uri);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
                 R.layout.autocomplete_list_itemdown);
         SearchText.setAdapter(adapter);
@@ -363,12 +368,13 @@ if(WebviewLoaded) {
         SearchText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                webView.loadUrl("http://"+WEBSITES[i]);
-                WebviewLoaded=false;
+                webView.loadUrl("http://" + WEBSITES[i]);
+                WebviewLoaded = false;
                 SwithcView(true);
             }
         });
     }
+
     public static String[] getStringArray(JSONArray jsonArray) {
         String[] stringArray = null;
         if (jsonArray != null) {
@@ -380,6 +386,7 @@ if(WebviewLoaded) {
         }
         return stringArray;
     }
+
     private void initWebView() {
         webView.setWebChromeClient(new MyWebChromeClient(this));
         webView.setWebViewClient(new WebViewClient() {
@@ -390,10 +397,10 @@ if(WebviewLoaded) {
                 OnPrepareBottomNav(bottomNavigationView.getMenu());
 
             }
+
             @Override
-            public void onLoadResource(WebView webview, String s)
-            {
-                if(webview.getUrl()!=null) {
+            public void onLoadResource(WebView webview, String s) {
+                if (webview.getUrl() != null) {
 
                     if (webview.getUrl().contains("facebook.com")) {
                         webView.loadUrl("javascript:(function prepareVideo() { var el = document.querySelectorAll('div[data-sigil]');for(var i=0;i<el.length; i++){var sigil = el[i].dataset.sigil;if(sigil.indexOf('inlineVideo') > -1){delete el[i].dataset.sigil;console.log(i);var jsonData = JSON.parse(el[i].dataset.store);el[i].setAttribute('onClick', 'FBDownloader.processVideo(\"'+jsonData['src']+'\",\"'+jsonData['videoID']+'\");');}}})()");
@@ -404,13 +411,14 @@ if(WebviewLoaded) {
                     }
                 }
             }
+
             @SuppressWarnings("deprecation")
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if(url.contains("video.flhe2")){
-                    iUtils.ShowToast(MainActivity.this,"Intercept Facebook video playing");
+                if (url.contains("video.flhe2")) {
+                    iUtils.ShowToast(MainActivity.this, "Intercept Facebook video playing");
                 }
-                if(url.startsWith("intent://")){
+                if (url.startsWith("intent://")) {
                     try {
                         Intent furl = Intent.parseUri(url, 1);
                         if (getPackageManager().getLaunchIntentForPackage(furl.getPackage()) != null) {
@@ -422,11 +430,11 @@ if(WebviewLoaded) {
                         startActivity(intent);
                         return true;
                     } catch (URISyntaxException e) {
-                        iUtils.ShowToast(MainActivity.this,"No Application Found!");
+                        iUtils.ShowToast(MainActivity.this, "No Application Found!");
                         e.printStackTrace();
                     }
 
-                }else if (url.startsWith("market://")) {
+                } else if (url.startsWith("market://")) {
                     try {
                         Intent r1 = Intent.parseUri(url, 1);
                         if (r1 == null) {
@@ -435,14 +443,14 @@ if(WebviewLoaded) {
                         startActivity(r1);
                         return true;
                     } catch (Throwable e22) {
-                        iUtils.ShowToast(MainActivity.this,"No Application Found!");
+                        iUtils.ShowToast(MainActivity.this, "No Application Found!");
                         e22.printStackTrace();
                         return true;
                     }
-                }else{
-                SearchText.setText(url);
-                webView.loadUrl(url);
-                    WebviewLoaded=false;
+                } else {
+                    SearchText.setText(url);
+                    webView.loadUrl(url);
+                    WebviewLoaded = false;
                 }
                 return true;
             }
@@ -450,13 +458,13 @@ if(WebviewLoaded) {
             @TargetApi(Build.VERSION_CODES.N)
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                String url=request.getUrl().toString();
-                if(url.contains("video.flhe2")){
-                    iUtils.ShowToast(MainActivity.this,"Intercept Facebook video playing");
+                String url = request.getUrl().toString();
+                if (url.contains("video.flhe2")) {
+                    iUtils.ShowToast(MainActivity.this, "Intercept Facebook video playing");
                 }
-                if(url.startsWith("intent://")){
+                if (url.startsWith("intent://")) {
                     try {
-                        Intent furl = Intent.parseUri(url,1);
+                        Intent furl = Intent.parseUri(url, 1);
                         if (getPackageManager().getLaunchIntentForPackage(furl.getPackage()) != null) {
                             startActivity(furl);
                             return true;
@@ -466,11 +474,11 @@ if(WebviewLoaded) {
                         startActivity(intent);
                         return true;
                     } catch (URISyntaxException e) {
-                        iUtils.ShowToast(MainActivity.this,"No Application Found!");
+                        iUtils.ShowToast(MainActivity.this, "No Application Found!");
                         e.printStackTrace();
                     }
 
-                }else if (url.startsWith("market://")) {
+                } else if (url.startsWith("market://")) {
                     try {
                         Intent r1 = Intent.parseUri(url, 1);
                         if (r1 == null) {
@@ -479,14 +487,15 @@ if(WebviewLoaded) {
                         startActivity(r1);
                         return true;
                     } catch (Throwable e22) {
-                        iUtils.ShowToast(MainActivity.this,"No Application Found!");
+                        iUtils.ShowToast(MainActivity.this, "No Application Found!");
                         e22.printStackTrace();
                         return true;
                     }
-                }else{
+                } else {
                     SearchText.setText(url);
                     webView.loadUrl(url);
-                    WebviewLoaded=false;}
+                    WebviewLoaded = false;
+                }
                 return true;
             }
 
@@ -494,8 +503,8 @@ if(WebviewLoaded) {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 progressBar.setVisibility(View.GONE);
-                WebviewLoaded=true;
-                  //  view.loadUrl("javascript:window.android.onUrlChange(window.location.href);");
+                WebviewLoaded = true;
+                //  view.loadUrl("javascript:window.android.onUrlChange(window.location.href);");
                 webView.loadUrl("javascript:(function() { var el = document.querySelectorAll('div[data-sigil]');for(var i=0;i<el.length; i++){var sigil = el[i].dataset.sigil;if(sigil.indexOf('inlineVideo') > -1){delete el[i].dataset.sigil;var jsonData = JSON.parse(el[i].dataset.store);el[i].setAttribute('onClick', 'FBDownloader.processVideo(\"'+jsonData['src']+'\");');}}})()");
                 Log.e("WEBVIEWFIN", url);
                 OnPrepareBottomNav(bottomNavigationView.getMenu());
@@ -508,8 +517,7 @@ if(WebviewLoaded) {
             public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
 
 
-
-                if (AdblockEnabled && new  AdBlock(MainActivity.this).isAd(url)) {
+                if (AdblockEnabled && new AdBlock(MainActivity.this).isAd(url)) {
                     return new WebResourceResponse(
                             "text/plain",
                             "UTF-8",
@@ -529,7 +537,6 @@ if(WebviewLoaded) {
                 }
 
 
-
                 return super.shouldInterceptRequest(view, url);
             }
 
@@ -537,7 +544,7 @@ if(WebviewLoaded) {
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    if (AdblockEnabled &&  new  AdBlock(MainActivity.this).isAd(request.getUrl().toString())) {
+                    if (AdblockEnabled && new AdBlock(MainActivity.this).isAd(request.getUrl().toString())) {
                         return new WebResourceResponse(
                                 "text/plain",
                                 "UTF-8",
@@ -560,11 +567,12 @@ if(WebviewLoaded) {
 
                 return super.shouldInterceptRequest(view, request);
             }
+
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 super.onReceivedError(view, request, error);
                 progressBar.setVisibility(View.GONE);
-              //  WebviewLoaded=true;
+                //  WebviewLoaded=true;
                 OnPrepareBottomNav(bottomNavigationView.getMenu());
             }
         });
@@ -584,7 +592,8 @@ if(WebviewLoaded) {
         webSettings.setDomStorageEnabled(true);
         webView.addJavascriptInterface(new MyJavaScriptInterface(),
                 "android");
-        webView.setWebChromeClient(new WebChromeClient() {});
+        webView.setWebChromeClient(new WebChromeClient() {
+        });
 
         webView.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
@@ -634,22 +643,21 @@ if(WebviewLoaded) {
 
 
         @JavascriptInterface
-        public void processVideo(String s, String s1)
-        {
+        public void processVideo(String s, String s1) {
             //Log.e("vid_data", s);
             Log.e("vid_id", s1);
-            final String vid_data=s;
-            final String vid_id=s1;
-         //  iUtils.ShowToast(MainActivity.this,vid_id);
-            final String  url = "https://m.facebook.com/video.php?story_fbid="+vid_id;
+            final String vid_data = s;
+            final String vid_id = s1;
+            //  iUtils.ShowToast(MainActivity.this,vid_id);
+            final String url = "https://m.facebook.com/video.php?story_fbid=" + vid_id;
 
-           GeneratingDownloadLinks.Start(MainActivity.this, vid_data, "Facebook Video");
+            GeneratingDownloadLinks.Start(MainActivity.this, vid_data, "Facebook Video");
             showInterstitial();
-
 
 
         }
     }
+
     public class IGDownloader {
         Context mContext;
 
@@ -660,18 +668,16 @@ if(WebviewLoaded) {
 
 
         @JavascriptInterface
-        public void processVideo(String s)
-        {
+        public void processVideo(String s) {
             //Log.e("vid_data", s);
-           // Log.e("vid_id", s1);
-            final String vid_data=s;
+            // Log.e("vid_id", s1);
+            final String vid_data = s;
 
             //  iUtils.ShowToast(MainActivity.this,vid_id);
-           // final String  url = "https://m.facebook.com/video.php?story_fbid="+vid_id;
+            // final String  url = "https://m.facebook.com/video.php?story_fbid="+vid_id;
 
             GeneratingDownloadLinks.Start(MainActivity.this, vid_data, "Instagram Video");
             showInterstitial();
-
 
 
         }
@@ -684,15 +690,18 @@ if(WebviewLoaded) {
 
         }
     }
-   private void loadInterstitialAd() {
-   }
-    private void loadBannerAd(){
+
+    private void loadInterstitialAd() {
     }
+
+    private void loadBannerAd() {
+    }
+
     private void showInterstitial() {
     }
 
 
-    private  void GetMedia(){
+    private void GetMedia() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Enter URL to get media ");
@@ -708,10 +717,10 @@ if(WebviewLoaded) {
             public void onClick(DialogInterface dialog, int which) {
                 //iUtils.ShowToast(MainActivity.this,input.getText().toString());
                 String url = input.getText().toString();
-                if(iUtils.checkURL(url)) {
+                if (iUtils.checkURL(url)) {
                     GeneratingDownloadLinks.Start(MainActivity.this, input.getText().toString(), SessionID);
-                }else{
-                    iUtils.ShowToast(MainActivity.this,URL_NOT_SUPPORTED);
+                } else {
+                    iUtils.ShowToast(MainActivity.this, URL_NOT_SUPPORTED);
                 }
             }
         });
@@ -731,11 +740,11 @@ if(WebviewLoaded) {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if(webView.canGoBack()){
+            if (webView.canGoBack()) {
 
                 back();
 
-            }else{
+            } else {
 
                 webView.loadUrl("");
                 webView.stopLoading();
@@ -743,7 +752,7 @@ if(WebviewLoaded) {
                 android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(MainActivity.this)
                         .setTitle("EducateMe")
                         .setMessage("Thank You for Using")
-                        .setNegativeButton("Exit",new DialogInterface.OnClickListener() {
+                        .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 // if this button is clicked, close
                                 // current activity
@@ -762,7 +771,7 @@ if(WebviewLoaded) {
                                         .onRatingBarFormSumbit(new RatingDialog.Builder.RatingDialogFormListener() {
                                             @Override
                                             public void onFormSubmitted(String feedback) {
-                                                Toast.makeText(MainActivity.this,"Thank you for the suggestions and your feedback.",Toast.LENGTH_LONG).show();
+                                                Toast.makeText(MainActivity.this, "Thank you for the suggestions and your feedback.", Toast.LENGTH_LONG).show();
                                             }
                                         }).build();
 
@@ -770,19 +779,20 @@ if(WebviewLoaded) {
                             }
                         });
                 builder.create().show();
-                }
+            }
         }
     }
-    public  void DownloadHandle(boolean show , final String postUrl){
 
-        if(show) {
+    public void DownloadHandle(boolean show, final String postUrl) {
+
+        if (show) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     fab.setVisibility(View.VISIBLE);
                 }
             });
-        }else{
+        } else {
 
             runOnUiThread(new Runnable() {
                 @Override
@@ -804,16 +814,16 @@ if(WebviewLoaded) {
     }
 
 
-    public boolean OnPrepareBottomNav(Menu menu){
-      //  Log.e("ERROR BOOKMARK",webView.getUrl());
-   if (!iUtils.isBookmarked(this,SearchText.getText().toString())) {
-       menu.getItem(1).setIcon(R.drawable.ic_bookmark_border_grey_800_24dp);
-       menu.getItem(1).getIcon().setAlpha(130);
-   } else {
+    public boolean OnPrepareBottomNav(Menu menu) {
+        //  Log.e("ERROR BOOKMARK",webView.getUrl());
+        if (!iUtils.isBookmarked(this, SearchText.getText().toString())) {
+            menu.getItem(1).setIcon(R.drawable.ic_bookmark_border_grey_800_24dp);
+            menu.getItem(1).getIcon().setAlpha(130);
+        } else {
             menu.getItem(1).setIcon(R.drawable.ic_bookmark_grey_800_24dp);
-       menu.getItem(1).getIcon().setAlpha(255);
+            menu.getItem(1).getIcon().setAlpha(255);
 
-   }
+        }
 
         if (!webView.canGoBack()) {
             menu.getItem(2).setEnabled(false);
@@ -832,13 +842,13 @@ if(WebviewLoaded) {
         }
 
 
-
         return true;
     }
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
 
-         return true;
+        return true;
     }
 
 
@@ -850,9 +860,9 @@ if(WebviewLoaded) {
 
         if (item.getItemId() == R.id.action_downloads) {
 
-        // startActivity(new Intent("android.intent.action.VIEW_DOWNLOADS"));
+            // startActivity(new Intent("android.intent.action.VIEW_DOWNLOADS"));
             GetMedia();
-            return  true;
+            return true;
         }
 
 
@@ -863,7 +873,7 @@ if(WebviewLoaded) {
         if (webView.canGoBack()) {
             WebBackForwardList mWebBackForwardList = webView.copyBackForwardList();
 
-            String historyUrl = mWebBackForwardList.getItemAtIndex(mWebBackForwardList.getCurrentIndex()-1).getUrl();
+            String historyUrl = mWebBackForwardList.getItemAtIndex(mWebBackForwardList.getCurrentIndex() - 1).getUrl();
 
             webView.goBack();
             SearchText.setText(historyUrl);
@@ -874,7 +884,7 @@ if(WebviewLoaded) {
     private void forward() {
         if (webView.canGoForward()) {
             WebBackForwardList mWebBackForwardList = webView.copyBackForwardList();
-            String historyUrl = mWebBackForwardList.getItemAtIndex(mWebBackForwardList.getCurrentIndex()+1).getUrl();
+            String historyUrl = mWebBackForwardList.getItemAtIndex(mWebBackForwardList.getCurrentIndex() + 1).getUrl();
             webView.goForward();
             SearchText.setText(webView.getUrl());
 
@@ -924,15 +934,13 @@ if(WebviewLoaded) {
                                 });
                         localBuilder.show();
 
-                    }
-                    else {
+                    } else {
                         ActivityCompat.requestPermissions(this, new String[]{REQUEST_PERMISSION}, REQUEST_PERMISSION_CODE);
                     }
                     return true;
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
@@ -946,21 +954,20 @@ if(WebviewLoaded) {
             if (requestCode == REQUEST_PERMISSION_CODE) {
                 if (grantResults != null && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     //
-                }
-                else {
-                    iUtils.ShowToast(MainActivity.this,getString(R.string.info_permission_denied));
+                } else {
+                    iUtils.ShowToast(MainActivity.this, getString(R.string.info_permission_denied));
 
                     finish();
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            iUtils.ShowToast(MainActivity.this,getString(R.string.info_permission_denied));
+            iUtils.ShowToast(MainActivity.this, getString(R.string.info_permission_denied));
             finish();
         }
 
     }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -984,20 +991,21 @@ if(WebviewLoaded) {
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         // put your code here...
 //        if (mAdView != null) {
 //            mAdView.resume();
 //        }
-        AdblockEnabled=sharedPrefs.getBoolean("ADBLOCK",true);
+        AdblockEnabled = sharedPrefs.getBoolean("ADBLOCK", true);
         webView.onResume();
         webView.resumeTimers();
 
 
     }
+
     @Override
-    public void onPause(){
+    public void onPause() {
 //        if (mAdView != null) {
 //            mAdView.pause();
 //        }
@@ -1007,11 +1015,13 @@ if(WebviewLoaded) {
         webView.pauseTimers();
 
     }
+
     @Override
-    public void onStop(){
+    public void onStop() {
         super.onStop();
 
     }
+
     @Override
     protected void onDestroy() {
 //        if (mAdView != null) {
@@ -1023,6 +1033,6 @@ if(WebviewLoaded) {
         webView.setWebChromeClient(null);
         webView.setWebViewClient(null);
         webView.destroy();
-        webView=null;
-     }
+        webView = null;
+    }
 }

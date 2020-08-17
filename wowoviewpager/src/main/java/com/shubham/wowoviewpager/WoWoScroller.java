@@ -2,9 +2,10 @@ package com.shubham.wowoviewpager;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
+
+import androidx.annotation.RequiresApi;
 
 /**
  * Created by Weiping Huang at 14:01 on 2016/3/7

@@ -1,13 +1,14 @@
 package com.shubham.iitg.blogapp;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,7 +30,7 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
     FirebaseAuth mAuth;
     String currentUser;
 
-    public CommentsRecyclerAdapter(List<CommentModelClass> commentList){
+    public CommentsRecyclerAdapter(List<CommentModelClass> commentList) {
         this.commentList = commentList;
     }
 
@@ -46,7 +47,7 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser().getUid();
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comment_list_itemblog,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comment_list_itemblog, parent, false);
 //        forGlide
         context = parent.getContext();
 
@@ -69,13 +70,13 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
         firebaseFirestore.collection("Users").document(user_id_comment).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()){
-                    if(task.getResult().exists()){
+                if (task.isSuccessful()) {
+                    if (task.getResult().exists()) {
 
                         String userPhoto = task.getResult().getString("image");
                         String userName = task.getResult().getString("name");
 
-                        holder.setNamePhoto(userPhoto,userName);
+                        holder.setNamePhoto(userPhoto, userName);
                     }
                 }
             }
@@ -88,7 +89,7 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
         return commentList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         private View mview;
         private ImageView profilePic;
@@ -104,11 +105,11 @@ public class CommentsRecyclerAdapter extends RecyclerView.Adapter<CommentsRecycl
 
         }
 
-        private void setCommentMessage(String message){
+        private void setCommentMessage(String message) {
             commentMessage.setText(message);
         }
 
-        private void setNamePhoto(String pic, String name){
+        private void setNamePhoto(String pic, String name) {
 
             Glide.with(context).load(pic).into(profilePic);
             userName.setText(name);

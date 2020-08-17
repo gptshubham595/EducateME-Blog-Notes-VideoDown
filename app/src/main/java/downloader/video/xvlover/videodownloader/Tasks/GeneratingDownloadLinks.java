@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+
 import com.shubham.iitg.R;
 import com.squareup.picasso.Picasso;
 

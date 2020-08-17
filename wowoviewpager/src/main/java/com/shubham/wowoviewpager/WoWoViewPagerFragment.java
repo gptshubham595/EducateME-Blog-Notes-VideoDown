@@ -2,12 +2,13 @@ package com.shubham.wowoviewpager;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.core.app.Fragment;
-import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by Weiping Huang at 15:16 on 2017/4/1

@@ -25,7 +25,6 @@ import java.util.TimerTask;
  * For Personal Open Source
  * Contact me at 2584541288@qq.com or nightonke@outlook.com
  * For more projects: https://github.com/Nightonke
- *
  */
 
 public class WoWoViewPager extends BaseViewPager {
@@ -109,9 +108,9 @@ public class WoWoViewPager extends BaseViewPager {
      * (e.g. super.onPageScrolled(position, offset, offsetPixels)) before onPageScrolled
      * returns.
      *
-     * @param position Position index of the first page currently being displayed.
-     *                 Page position+1 will be visible if positionOffset is nonzero.
-     * @param offset Value from [0, 1) indicating the offset from the page at position.
+     * @param position     Position index of the first page currently being displayed.
+     *                     Page position+1 will be visible if positionOffset is nonzero.
+     * @param offset       Value from [0, 1) indicating the offset from the page at position.
      * @param offsetPixels Value in pixels indicating the offset from position.
      */
     @Override
@@ -141,7 +140,7 @@ public class WoWoViewPager extends BaseViewPager {
      * Logic to play view animations.
      *
      * @param position Position of WoWoViewPager
-     * @param offset Offset of WoWoViewPager
+     * @param offset   Offset of WoWoViewPager
      */
     private void innerPlayAnimations(int position, float offset) {
         float nowOffset = position + offset;
@@ -168,9 +167,11 @@ public class WoWoViewPager extends BaseViewPager {
         lastOffset = nowOffset;
 
         for (int i = 0; i < viewAnimations.size(); i++) {
-            if (shouldForceAnimationToStartStateInNextPage) viewAnimations.get(i).forceAnimationToStartStateInNextPage(position + 1);
+            if (shouldForceAnimationToStartStateInNextPage)
+                viewAnimations.get(i).forceAnimationToStartStateInNextPage(position + 1);
             viewAnimations.get(i).play(position, offset, easeReverse);
-            if (offset == 0 || (pageChanged && inOrder)) viewAnimations.get(i).forceAnimationToEndStateInPreviousPage(position - 1);
+            if (offset == 0 || (pageChanged && inOrder))
+                viewAnimations.get(i).forceAnimationToEndStateInPreviousPage(position - 1);
         }
 
         // Put the visualize-views job after the animations.
@@ -283,7 +284,7 @@ public class WoWoViewPager extends BaseViewPager {
 
     /**
      * Smoothly animating to next page.
-     * 
+     *
      * @return Successfully or not
      */
     public boolean next() {
@@ -298,7 +299,7 @@ public class WoWoViewPager extends BaseViewPager {
 
     /**
      * Smoothly animating to previous page.
-     * 
+     *
      * @return Successfully or not
      */
     public boolean previous() {
@@ -353,6 +354,7 @@ public class WoWoViewPager extends BaseViewPager {
 
     /**
      * Set the duration of swiping in ms
+     *
      * @param scrollDuration Duration in ms, -1 to reset
      */
     public void setScrollDuration(int scrollDuration) {
@@ -366,7 +368,9 @@ public class WoWoViewPager extends BaseViewPager {
      * {@link WoWoViewPager#Horizontal} for horizontal,
      * {@link WoWoViewPager#Vertical} for vertical.
      */
-    public int getDirection() { return direction; }
+    public int getDirection() {
+        return direction;
+    }
 
     /**
      * Set the scroll direction of WoWoViewPager,
@@ -391,7 +395,9 @@ public class WoWoViewPager extends BaseViewPager {
      *
      * @param ease Ease
      */
-    public void setEase(int ease) { setTimeInterpolator(Ease.getInstance(ease)); }
+    public void setEase(int ease) {
+        setTimeInterpolator(Ease.getInstance(ease));
+    }
 
     /**
      * Set TimeInterpolator for all page animations in all view animations.
@@ -400,7 +406,8 @@ public class WoWoViewPager extends BaseViewPager {
      */
     public void setTimeInterpolator(TimeInterpolator interpolator) {
         if (viewAnimations == null) return;
-        for (ViewAnimation viewAnimation : viewAnimations) viewAnimation.setTimeInterpolator(interpolator);
+        for (ViewAnimation viewAnimation : viewAnimations)
+            viewAnimation.setTimeInterpolator(interpolator);
     }
 
     /**
@@ -409,17 +416,20 @@ public class WoWoViewPager extends BaseViewPager {
      * @param ease Ease
      * @param page Certain page
      */
-    public void setEase(int ease, int page) { setTimeInterpolator(Ease.getInstance(ease), page); }
+    public void setEase(int ease, int page) {
+        setTimeInterpolator(Ease.getInstance(ease), page);
+    }
 
     /**
      * Set TimeInterpolator for all page animations at a certain page in all view animations.
      *
      * @param interpolator TimeInterpolator
-     * @param page Certain page
+     * @param page         Certain page
      */
     public void setTimeInterpolator(TimeInterpolator interpolator, int page) {
         if (viewAnimations == null) return;
-        for (ViewAnimation viewAnimation : viewAnimations) viewAnimation.setTimeInterpolator(interpolator, page);
+        for (ViewAnimation viewAnimation : viewAnimations)
+            viewAnimation.setTimeInterpolator(interpolator, page);
     }
 
     /**
@@ -429,25 +439,27 @@ public class WoWoViewPager extends BaseViewPager {
      */
     public void setUseSameEaseBack(boolean useSameEaseEnumBack) {
         if (viewAnimations == null) return;
-        for (ViewAnimation viewAnimation : viewAnimations) viewAnimation.setUseSameEaseBack(useSameEaseEnumBack);
+        for (ViewAnimation viewAnimation : viewAnimations)
+            viewAnimation.setUseSameEaseBack(useSameEaseEnumBack);
     }
 
     /**
      * Whether use same ease enum when swiping the view-pager back at a certain page in all view animations.
      *
      * @param useSameEaseEnumBack Use same ease enum when swiping the view-pager back
-     * @param page Certain page
+     * @param page                Certain page
      */
     public void setUseSameEaseBack(boolean useSameEaseEnumBack, int page) {
         if (viewAnimations == null) return;
-        for (ViewAnimation viewAnimation : viewAnimations) viewAnimation.setUseSameEaseBack(useSameEaseEnumBack, page);
+        for (ViewAnimation viewAnimation : viewAnimations)
+            viewAnimation.setUseSameEaseBack(useSameEaseEnumBack, page);
     }
 
     /**
      * Start scroll automatically.
      *
-     * @param touchThenStop If WoWoViewPager is touched, then stop scrolling automatically.
-     * @param delayPerPage Delay before scrolling for each page.
+     * @param touchThenStop  If WoWoViewPager is touched, then stop scrolling automatically.
+     * @param delayPerPage   Delay before scrolling for each page.
      * @param scrollDuration Scroll-duration for each page.
      */
     @SuppressLint("HandlerLeak")
@@ -485,7 +497,7 @@ public class WoWoViewPager extends BaseViewPager {
      * So we use this method to make these views invisible in onCreate method, then WoWoViewPager
      * makes these views visible when it's scrolled to the animation-starting-page of them.
      *
-     * @param page Animation starting page
+     * @param page  Animation starting page
      * @param views The views need to be temporarily invisible
      * @return WoWoViewPager itself
      */
@@ -493,7 +505,8 @@ public class WoWoViewPager extends BaseViewPager {
         if (temporarilyInvisibleViews == null) {
             temporarilyInvisibleViews = new ArrayList<>(page + 1);
         }
-        while (temporarilyInvisibleViews.size() < page + 1) temporarilyInvisibleViews.add(new ArrayList<View>());
+        while (temporarilyInvisibleViews.size() < page + 1)
+            temporarilyInvisibleViews.add(new ArrayList<View>());
         for (View view : views) {
             if (view != null) {
                 view.setVisibility(INVISIBLE);

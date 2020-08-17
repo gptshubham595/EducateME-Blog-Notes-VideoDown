@@ -6,15 +6,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import androidx.core.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -47,14 +48,15 @@ public class GuidePageActivity2 extends WoWoActivity {
 
     private FirebaseAuth mAuth;
 
-    private DatabaseReference mUserDatabase,mDatabase;
+    private DatabaseReference mUserDatabase, mDatabase;
     private int r;
     private boolean animationAdded = false;
     private ImageView targetPlanet;
-    private View loginLayout,loginLayout1,loginLayout2,loginLayout3,loginLayout4;
-    Button login,register;
+    private View loginLayout, loginLayout1, loginLayout2, loginLayout3, loginLayout4;
+    Button login, register;
     MaterialEditText email, password;
-    TextView forgot,help;
+    TextView forgot, help;
+
     @Override
     protected int contentViewRes() {
         return R.layout.activity_guide_page2;
@@ -80,27 +82,31 @@ public class GuidePageActivity2 extends WoWoActivity {
         super.onCreate(savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance();
-        r = (int)Math.sqrt(screenW * screenW + screenH * screenH) + 10;
+        r = (int) Math.sqrt(screenW * screenW + screenH * screenH) + 10;
 
-        mLoginProgress = new ProgressDialog(this,R.style.dialog);
+        mLoginProgress = new ProgressDialog(this, R.style.dialog);
 
         mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
 
-        forgot=findViewById(R.id.forgot);
-        email=findViewById(R.id.email);
-        password=findViewById(R.id.password);
-        login=findViewById(R.id.login);
-        register=findViewById(R.id.register);
-        help=findViewById(R.id.help);
+        forgot = findViewById(R.id.forgot);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        login = findViewById(R.id.login);
+        register = findViewById(R.id.register);
+        help = findViewById(R.id.help);
         ///=====
 
         password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    if(password.getText().length()<8){password.setError("min 8 digits");}
-                }else{password.setError(null);}
+                if (hasFocus) {
+                    if (password.getText().length() < 8) {
+                        password.setError("min 8 digits");
+                    }
+                } else {
+                    password.setError(null);
+                }
             }
         });
         register.setOnClickListener(new View.OnClickListener() {
@@ -109,9 +115,13 @@ public class GuidePageActivity2 extends WoWoActivity {
 
                 String emailis = email.getText().toString();
                 String passwordis = password.getText().toString();
-                if(TextUtils.isEmpty(emailis)){email.setError("Enter email!");}
-                if(TextUtils.isEmpty(passwordis)){password.setError("Enter password!");}
-                if(!TextUtils.isEmpty(emailis) && !TextUtils.isEmpty(passwordis)) {
+                if (TextUtils.isEmpty(emailis)) {
+                    email.setError("Enter email!");
+                }
+                if (TextUtils.isEmpty(passwordis)) {
+                    password.setError("Enter password!");
+                }
+                if (!TextUtils.isEmpty(emailis) && !TextUtils.isEmpty(passwordis)) {
                     password.setError(null);
                     email.setError(null);
                     mLoginProgress.setTitle("Registering User");
@@ -119,13 +129,12 @@ public class GuidePageActivity2 extends WoWoActivity {
                     mLoginProgress.setCanceledOnTouchOutside(false);
                     mLoginProgress.show();
 
-                    register_user( emailis, passwordis);
-                }else{
+                    register_user(emailis, passwordis);
+                } else {
                     Toast.makeText(GuidePageActivity2.this, "Please Enter Details first", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -134,9 +143,13 @@ public class GuidePageActivity2 extends WoWoActivity {
 
                 String emailis = email.getText().toString();
                 String passwordis = password.getText().toString();
-                if(TextUtils.isEmpty(emailis)){email.setError("Enter email!");}
-                if(TextUtils.isEmpty(passwordis)){password.setError("Enter password!");}
-                if(!TextUtils.isEmpty(emailis) && !TextUtils.isEmpty(passwordis)) {
+                if (TextUtils.isEmpty(emailis)) {
+                    email.setError("Enter email!");
+                }
+                if (TextUtils.isEmpty(passwordis)) {
+                    password.setError("Enter password!");
+                }
+                if (!TextUtils.isEmpty(emailis) && !TextUtils.isEmpty(passwordis)) {
                     password.setError(null);
                     email.setError(null);
                     mLoginProgress.setTitle("Logging In");
@@ -145,7 +158,9 @@ public class GuidePageActivity2 extends WoWoActivity {
                     mLoginProgress.show();
 
                     loginUser(emailis, passwordis);
-                }else{Toast.makeText(GuidePageActivity2.this, "Please Enter Details first", Toast.LENGTH_SHORT).show();}
+                } else {
+                    Toast.makeText(GuidePageActivity2.this, "Please Enter Details first", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -153,22 +168,23 @@ public class GuidePageActivity2 extends WoWoActivity {
             @Override
             public void onClick(View v) {
                 String emailis = email.getText().toString();
-                if(!TextUtils.isEmpty(emailis)){
+                if (!TextUtils.isEmpty(emailis)) {
                     password.setError(null);
                     email.setError(null);
                     mAuth.sendPasswordResetEmail(emailis).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(getApplicationContext(),"Check Your mail and reset your password",Toast.LENGTH_LONG).show();
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Check Your mail and reset your password", Toast.LENGTH_LONG).show();
                             }
                         }
                     });
-                }
-                else{ email.setError("Enter email !");
+                } else {
+                    email.setError("Enter email !");
                     password.setError(null);
 
-                    Toast.makeText(getApplicationContext(),"Please enter a email..",Toast.LENGTH_SHORT).show();}
+                    Toast.makeText(getApplicationContext(), "Please enter a email..", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         help.setOnClickListener(new View.OnClickListener() {
@@ -199,7 +215,7 @@ public class GuidePageActivity2 extends WoWoActivity {
 
     }
 
-    private void makedialog(){
+    private void makedialog() {
         final AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setView(R.layout.dialog_option)
                 .setNegativeButton("OK", null)
@@ -208,20 +224,19 @@ public class GuidePageActivity2 extends WoWoActivity {
     }
 
 
-
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         addAnimations();
     }
 
-    private void register_user( String email, String password) {
+    private void register_user(String email, String password) {
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
 
 
                     FirebaseUser current_user = FirebaseAuth.getInstance().getCurrentUser();
@@ -246,11 +261,11 @@ public class GuidePageActivity2 extends WoWoActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
 
                                 mLoginProgress.dismiss();
                                 sendEmailVerification();
-                                Toast.makeText(getApplicationContext(),"Registered!! Please verify Email Confirmation and Login",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Registered!! Please verify Email Confirmation and Login", Toast.LENGTH_LONG).show();
 
                             }
 
@@ -272,24 +287,23 @@ public class GuidePageActivity2 extends WoWoActivity {
 
 
     private void sendEmailVerification() {
-        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-        if(user!=null){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
             user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    if(task.isSuccessful()) {
+                    if (task.isSuccessful()) {
                         Toast.makeText(getApplicationContext(), "Check your Email", Toast.LENGTH_LONG).show();
                         FirebaseAuth.getInstance().signOut();
-                    }
-
-                    else{
-                        Toast.makeText(getApplicationContext(),"ERROR OCCURED TRY AGAIN!!",Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "ERROR OCCURED TRY AGAIN!!", Toast.LENGTH_LONG).show();
                     }
                 }
             });
         }
 
     }
+
     private void loginUser(String email, String password) {
 
 
@@ -297,7 +311,7 @@ public class GuidePageActivity2 extends WoWoActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
 
                     mLoginProgress.dismiss();
 
@@ -307,18 +321,18 @@ public class GuidePageActivity2 extends WoWoActivity {
                     mUserDatabase.child(current_user_id).child("device_token").setValue(deviceToken).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            if(mAuth.getCurrentUser().isEmailVerified()){
+                            if (mAuth.getCurrentUser().isEmailVerified()) {
                                 Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
                                 mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(mainIntent);
-                            }else{Toast.makeText(getApplicationContext(),"Please Verify Email or enter correct details",Toast.LENGTH_SHORT).show();}
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Please Verify Email or enter correct details", Toast.LENGTH_SHORT).show();
+                            }
                             finish();
 
 
                         }
                     });
-
-
 
 
                 } else {
@@ -336,7 +350,6 @@ public class GuidePageActivity2 extends WoWoActivity {
 
 
     }
-
 
 
     private void addAnimations() {

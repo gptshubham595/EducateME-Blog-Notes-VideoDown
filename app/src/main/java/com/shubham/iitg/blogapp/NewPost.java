@@ -5,9 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +12,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -41,10 +42,10 @@ import java.util.UUID;
 import id.zelory.compressor.Compressor;
 
 public class NewPost extends AppCompatActivity {
-    private static final int MAX_LENGTH = 100 ;
+    private static final int MAX_LENGTH = 100;
     private Toolbar toolbarNewPost;
     private Button submitBtn;
-    private EditText newPostText,newPostDesc;
+    private EditText newPostText, newPostDesc;
     private String user_id;
     private FirebaseAuth mauth;
     private FirebaseFirestore firebaseFirestore;
@@ -52,7 +53,7 @@ public class NewPost extends AppCompatActivity {
     private ImageView newPostImg;
     private Uri main_uri = null;
     private ProgressBar progressBar;
-    private String postText,postDesc;
+    private String postText, postDesc;
     private Bitmap compressedImageBitmap;
 
     @Override
@@ -86,8 +87,8 @@ public class NewPost extends AppCompatActivity {
             public void onClick(View view) {
                 CropImage.activity()
                         .setGuidelines(CropImageView.Guidelines.ON)
-                        .setMinCropResultSize(512,512)
-                        .setAspectRatio(1,1)
+                        .setMinCropResultSize(512, 512)
+                        .setAspectRatio(1, 1)
                         .start(NewPost.this);
             }
         });
@@ -100,7 +101,7 @@ public class NewPost extends AppCompatActivity {
                 postDesc = newPostDesc.getText().toString();
 
                 progressBar.setVisibility(View.VISIBLE);
-                if(main_uri != null && !TextUtils.isEmpty(postText) && !TextUtils.isEmpty(postDesc)){
+                if (main_uri != null && !TextUtils.isEmpty(postText) && !TextUtils.isEmpty(postDesc)) {
 //                    final String timestamp = FieldValue.serverTimestamp().toString();
 
                     progressBar.setVisibility(View.VISIBLE);
@@ -114,7 +115,7 @@ public class NewPost extends AppCompatActivity {
                     filePath.putFile(main_uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull final Task<UploadTask.TaskSnapshot> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
 
                                 //downloadURI is url of image uploaded that link of image only
                                 final String downloadUrl = task.getResult().getDownloadUrl().toString();
@@ -137,20 +138,20 @@ public class NewPost extends AppCompatActivity {
                                 compressedImageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                                 byte[] thumbBitmap = baos.toByteArray();
 
-                                UploadTask thumbImage = storageReference.child("/post_images/thumbs").child(randomName+".jpg").putBytes(thumbBitmap);
+                                UploadTask thumbImage = storageReference.child("/post_images/thumbs").child(randomName + ".jpg").putBytes(thumbBitmap);
                                 thumbImage.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                     @Override
                                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                        if(task.isSuccessful()){
+                                        if (task.isSuccessful()) {
 
                                             String thumbUri = task.getResult().getDownloadUrl().toString();
 
                                             Map<String, Object> postMap = new HashMap<>();
-                                            postMap.put("image_url",downloadUrl);
-                                            postMap.put("desc",postText);
-                                            postMap.put("desc2",postDesc);
-                                            postMap.put("user_id",user_id);
-                                            postMap.put("image_thumb",thumbUri);
+                                            postMap.put("image_url", downloadUrl);
+                                            postMap.put("desc", postText);
+                                            postMap.put("desc2", postDesc);
+                                            postMap.put("user_id", user_id);
+                                            postMap.put("image_thumb", thumbUri);
                                             postMap.put("timeStamp", FieldValue.serverTimestamp());
 
                                             //Finally add everything to collectionx
@@ -161,7 +162,7 @@ public class NewPost extends AppCompatActivity {
                                                     if (task.isSuccessful()) {
                                                         progressBar.setVisibility(View.INVISIBLE);
                                                         Toast.makeText(NewPost.this, "Successfully Posted", Toast.LENGTH_LONG).show();
-                                                        Intent main = new Intent(NewPost.this,MainActivity.class);
+                                                        Intent main = new Intent(NewPost.this, MainActivity.class);
                                                         startActivity(main);
                                                         finish();
                                                     } else {
@@ -172,19 +173,17 @@ public class NewPost extends AppCompatActivity {
                                             });
 
 
-                                        }
-                                        else {
+                                        } else {
                                             Toast.makeText(NewPost.this, "Error" + task.getException().toString(), Toast.LENGTH_LONG).show();
                                             progressBar.setVisibility(View.INVISIBLE);
                                         }
                                     }
                                 });
 
-}
+                            }
                         }
                     });
-                }
-                else{
+                } else {
                     Toast.makeText(NewPost.this, "No Image or Description", Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.INVISIBLE);
                 }
@@ -210,7 +209,7 @@ public class NewPost extends AppCompatActivity {
 
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
-                Toast.makeText(NewPost.this,"Error"+error, Toast.LENGTH_LONG).show();
+                Toast.makeText(NewPost.this, "Error" + error, Toast.LENGTH_LONG).show();
 
             }
         }
@@ -221,7 +220,7 @@ public class NewPost extends AppCompatActivity {
         StringBuilder randomStringBuilder = new StringBuilder();
         int randomLength = generator.nextInt(MAX_LENGTH);
         char tempChar;
-        for (int i = 0; i < randomLength; i++){
+        for (int i = 0; i < randomLength; i++) {
             tempChar = (char) (generator.nextInt(96) + 32);
             randomStringBuilder.append(tempChar);
         }

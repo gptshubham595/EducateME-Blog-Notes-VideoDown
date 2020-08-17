@@ -1,14 +1,15 @@
 package com.shubham.iitg.blogapp;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,7 +28,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 public class Comments extends AppCompatActivity {
 
@@ -61,7 +61,6 @@ public class Comments extends AppCompatActivity {
         commentsText.requestFocus();
 
 
-
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
@@ -83,21 +82,19 @@ public class Comments extends AppCompatActivity {
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
 
 
-                    for (DocumentChange doc : documentSnapshots.getDocumentChanges()) {
-                        if (doc.getType() == DocumentChange.Type.ADDED) {
+                for (DocumentChange doc : documentSnapshots.getDocumentChanges()) {
+                    if (doc.getType() == DocumentChange.Type.ADDED) {
 
-                            //USE MODEL CLASS and save one object obtained into Model class list
-                            CommentModelClass commentData = doc.getDocument().toObject(CommentModelClass.class);
-                            commentList.add(commentData);
-                            commentsRecyclerAdapter.notifyDataSetChanged();
-                        }
+                        //USE MODEL CLASS and save one object obtained into Model class list
+                        CommentModelClass commentData = doc.getDocument().toObject(CommentModelClass.class);
+                        commentList.add(commentData);
+                        commentsRecyclerAdapter.notifyDataSetChanged();
                     }
+                }
 
 
             }
         });
-
-
 
 
         //Read comments
@@ -107,18 +104,18 @@ public class Comments extends AppCompatActivity {
 
                 String comment = commentsText.getText().toString();
 
-                if(!comment.isEmpty()){
+                if (!comment.isEmpty()) {
 
                     Map<String, Object> commentMap = new HashMap<>();
-                    commentMap.put("Message",comment);
-                    commentMap.put("user_id",mAuth.getCurrentUser().getUid());
+                    commentMap.put("Message", comment);
+                    commentMap.put("user_id", mAuth.getCurrentUser().getUid());
                     commentMap.put("timeStamp", FieldValue.serverTimestamp());
 
                     firebaseFirestore.collection("Posts/" + BlogPostId + "/Comments").add(commentMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentReference> task) {
 
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 commentsText.setText(null);
                             }
 

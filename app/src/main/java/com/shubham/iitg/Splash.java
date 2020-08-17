@@ -1,33 +1,33 @@
 package com.shubham.iitg;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.FirebaseDatabase;
-import com.shubham.iitg.activity.Splash1;
 
 import maes.tech.intentanim.CustomIntent;
 
 public class Splash extends AppCompatActivity {
-ImageView image;
-TextView text,text2;
+    ImageView image;
+    TextView text, text2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         FirebaseApp.initializeApp(this);
 
-        image=findViewById(R.id.logo);
-        text=findViewById(R.id.title);
-        text2=findViewById(R.id.title2);
+        image = findViewById(R.id.logo);
+        text = findViewById(R.id.title);
+        text2 = findViewById(R.id.title2);
 
 
         new Handler().postDelayed(new Runnable() {
@@ -46,9 +46,9 @@ TextView text,text2;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i=new Intent(getApplicationContext(), Splash2.class);
+                Intent i = new Intent(getApplicationContext(), Splash2.class);
                 startActivity(i);
-                CustomIntent.customType(Splash.this,"fadein-to-fadeout");
+                CustomIntent.customType(Splash.this, "fadein-to-fadeout");
             }
         }, 4000);
 

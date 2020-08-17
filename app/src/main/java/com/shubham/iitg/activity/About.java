@@ -1,11 +1,11 @@
 package com.shubham.iitg.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.shubham.iitg.R;
 import com.shubham.iitg.Url;
@@ -18,9 +18,9 @@ public class About extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        TextView name=findViewById(R.id.username);
-        TextView dev=findViewById(R.id.dev);
-        CircleImageView shubham=findViewById(R.id.pic);
+        TextView name = findViewById(R.id.username);
+        TextView dev = findViewById(R.id.dev);
+        CircleImageView shubham = findViewById(R.id.pic);
         name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,11 +42,11 @@ public class About extends AppCompatActivity {
     }
 
     private void go() {
-        String url="https://www.fb.com/gptshubham595";
+        String url = "https://www.fb.com/gptshubham595";
 
-        Intent browser=new Intent(getApplicationContext(), Url.class);
-        browser.putExtra("heading","MEET SHUBHAM");
-        browser.putExtra("url",url);
+        Intent browser = new Intent(getApplicationContext(), Url.class);
+        browser.putExtra("heading", "MEET SHUBHAM");
+        browser.putExtra("url", url);
         startActivity(browser);
     }
 }

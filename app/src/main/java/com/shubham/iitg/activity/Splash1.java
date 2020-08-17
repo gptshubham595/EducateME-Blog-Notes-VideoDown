@@ -1,20 +1,19 @@
 package com.shubham.iitg.activity;
 
-
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import androidx.core.view.PagerAdapter;
-import androidx.core.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.github.vivchar.viewpagerindicator.ViewPagerIndicator;
 import com.shubham.iitg.R;
@@ -26,20 +25,21 @@ import pl.droidsonroids.gif.GifImageView;
 public class Splash1 extends AppCompatActivity {
     private ViewPagerIndicator mViewPagerIndicator;
     private ViewPager mViewPager;
-    GifImageView data,data2,data3;
+    GifImageView data, data2, data3;
     TextView txt;
     ImageView nxt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash1);
 
         Toast.makeText(this, "FIRST TIME USER", Toast.LENGTH_LONG).show();
-        data=findViewById(R.id.data);
-        data2=findViewById(R.id.data2);
-        data3=findViewById(R.id.data3);
-        txt=findViewById(R.id.txt);
-        nxt=findViewById(R.id.next);
+        data = findViewById(R.id.data);
+        data2 = findViewById(R.id.data2);
+        data3 = findViewById(R.id.data3);
+        txt = findViewById(R.id.txt);
+        nxt = findViewById(R.id.next);
         mViewPagerIndicator = (ViewPagerIndicator) findViewById(R.id.view_pager_indicator);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
 
@@ -47,20 +47,18 @@ public class Splash1 extends AppCompatActivity {
         mViewPagerIndicator.setupWithViewPager(mViewPager);
         mViewPagerIndicator.addOnPageChangeListener(mOnPageChangeListener);
     }
+
     private
     class MyPagerAdapter
-            extends PagerAdapter
-    {
+            extends PagerAdapter {
         @Override
-        public
-        int getCount() {
+        public int getCount() {
             return 3;
         }
 
         @SuppressLint("SetTextI18n")
         @Override
-        public
-        Object instantiateItem(final ViewGroup container, final int position) {
+        public Object instantiateItem(final ViewGroup container, final int position) {
             final TextView textView = new TextView(Splash1.this);
             final Handler handler = new Handler();
             //textView.setText("Page " + position);
@@ -69,37 +67,31 @@ public class Splash1 extends AppCompatActivity {
         }
 
         @Override
-        public
-        boolean isViewFromObject(final View view, final Object object) {
+        public boolean isViewFromObject(final View view, final Object object) {
             return view.equals(object);
         }
 
         @Override
-        public
-        void destroyItem(final ViewGroup container, final int position, final Object object) {
+        public void destroyItem(final ViewGroup container, final int position, final Object object) {
             container.removeView((View) object);
         }
 
         @Override
-        public
-        CharSequence getPageTitle(final int position) {
+        public CharSequence getPageTitle(final int position) {
             return String.valueOf(position);
         }
     }
 
     @NonNull
-    private final ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener()
-    {
+    private final ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
-        public
-        void onPageScrolled(final int position, final float positionOffset, final int positionOffsetPixels) {
+        public void onPageScrolled(final int position, final float positionOffset, final int positionOffsetPixels) {
 
         }
 
         @Override
-        public
-        void onPageSelected(final int position) {
-            switch (position){
+        public void onPageSelected(final int position) {
+            switch (position) {
                 case 0:
                     txt.setText("Easy Online Note making");
 
@@ -126,21 +118,20 @@ public class Splash1 extends AppCompatActivity {
                     nxt.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent i=new Intent(getApplicationContext(), MainActivity.class);
-                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(i);
-                            CustomIntent.customType(Splash1.this,"fadein-to-fadeout");
+                            CustomIntent.customType(Splash1.this, "fadein-to-fadeout");
                         }
                     });
                     break;
 
             }
-      //      Toast.makeText(Splash1.this, "Page selected " + position, Toast.LENGTH_SHORT).show();
+            //      Toast.makeText(Splash1.this, "Page selected " + position, Toast.LENGTH_SHORT).show();
         }
 
         @Override
-        public
-        void onPageScrollStateChanged(final int state) {
+        public void onPageScrollStateChanged(final int state) {
 
         }
     };

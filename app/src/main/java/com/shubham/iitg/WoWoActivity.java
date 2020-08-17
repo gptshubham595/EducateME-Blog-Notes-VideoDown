@@ -1,12 +1,13 @@
 package com.shubham.iitg;
 
 import android.os.Bundle;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewPager;
 
 import com.shubham.wowoviewpager.Enum.Ease;
 import com.shubham.wowoviewpager.WoWoViewPager;
@@ -51,14 +52,13 @@ public abstract class WoWoActivity extends AppCompatActivity {
 
         init();
 
-        wowo = (WoWoViewPager)findViewById(R.id.wowo_viewpager);
+        wowo = (WoWoViewPager) findViewById(R.id.wowo_viewpager);
         wowo.setAdapter(WoWoViewPagerAdapter.builder()
                 .fragmentManager(getSupportFragmentManager())
                 .count(fragmentNumber())                       // Fragment Count
                 .colorsRes(fragmentColorsRes())                // Colors of fragments
                 .build());
         setPageTV(wowo);
-
 
 
         screenW = WoWoUtil.getScreenWidth(this);
@@ -83,7 +83,9 @@ public abstract class WoWoActivity extends AppCompatActivity {
         useSameEaseTypeBack = getIntent().getBooleanExtra("useSameEaseTypeBack", true);
         int easeEnumNumber = getIntent().getIntExtra("easeType", -1);
         switch (easeEnumNumber) {
-            case 0: ease = Ease.Linear; break;
+            case 0:
+                ease = Ease.Linear;
+                break;
         }
     }
 
