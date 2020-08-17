@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.core.view.PagerAdapter;
+import androidx.core.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.vivchar.viewpagerindicator.ViewPagerIndicator;
-import com.google.firebase.database.FirebaseDatabase;
-import com.shubham.iitg.GuidePageActivity2;
 import com.shubham.iitg.R;
 import com.shubham.iitg.blogapp.MainActivity;
 

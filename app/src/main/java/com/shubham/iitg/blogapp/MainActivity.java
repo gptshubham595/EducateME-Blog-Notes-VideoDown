@@ -9,15 +9,14 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+import androidx.core.view.GravityCompat;
+import androidx.core.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,11 +40,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.shubham.iitg.GuidePageActivity2;
 import com.shubham.iitg.R;
-import com.shubham.iitg.Splash;
 import com.shubham.iitg.activity.About;
-import com.shubham.iitg.activity.Contact;
-import com.shubham.iitg.activity.EDITActivity;
-import com.shubham.iitg.activity.Help;
 //import com.shubham.iitg.notepad.activities.home.HomeActivity;
 import com.shubham.iitg.notepad.note_list.NotepadListActivity;
 import com.squareup.picasso.Callback;
@@ -415,8 +410,8 @@ try{
     }
 
     //Fragment transition to change fragment when pressed
-    private void replaceFragment(android.support.v4.app.Fragment fragment){
-        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+    private void replaceFragment(androidx.core.app.Fragment fragment){
+        androidx.core.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container,fragment);
         fragmentTransaction.commit();
     }
