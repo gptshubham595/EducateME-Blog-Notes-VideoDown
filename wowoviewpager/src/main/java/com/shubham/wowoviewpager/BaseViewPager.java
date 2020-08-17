@@ -13,24 +13,6 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.os.ParcelableCompat;
-import androidx.core.os.ParcelableCompatCreatorCallbacks;
-import androidx.core.view.AccessibilityDelegateCompat;
-import androidx.core.view.KeyEventCompat;
-import androidx.core.view.MotionEventCompat;
-import androidx.core.view.PagerAdapter;
-import androidx.core.view.VelocityTrackerCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.ViewPager;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.core.view.accessibility.AccessibilityEventCompat;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.core.view.accessibility.AccessibilityRecordCompat;
-import androidx.core.widget.EdgeEffectCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.FocusFinder;
@@ -47,6 +29,26 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.os.ParcelableCompat;
+import androidx.core.os.ParcelableCompatCreatorCallbacks;
+import androidx.core.view.AccessibilityDelegateCompat;
+//import androidx.core.view.KeyEventCompat;
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.VelocityTrackerCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityRecordCompat;
+import androidx.core.widget.EdgeEffectCompat;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+import androidx.viewpager.widget.ViewPager.PageTransformer;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
@@ -58,15 +60,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static androidx.core.view.ViewPager.OnPageChangeListener;
-import static androidx.core.view.ViewPager.PageTransformer;
-
-/**
- * Created by Weiping Huang at 17:41 on 2017/4/1
- * For Personal Open Source
- * Contact me at 2584541288@qq.com or nightonke@outlook.com
- * For more projects: https://github.com/Nightonke
- */
 
 @SuppressWarnings("unused")
 class BaseViewPager extends ViewGroup {
@@ -84,7 +77,7 @@ class BaseViewPager extends ViewGroup {
 
     private static final int MIN_FLING_VELOCITY = 400; // dips
 
-    private static final int[] LAYOUT_ATTRS = new int[]{ android.R.attr.layout_gravity };
+    private static final int[] LAYOUT_ATTRS = new int[]{android.R.attr.layout_gravity};
 
     /**
      * Used to track what the expected number of items in the adapter should be.
@@ -138,9 +131,6 @@ class BaseViewPager extends ViewGroup {
     private int mLeftPageBounds;
     private int mRightPageBounds;
 
-    // Offsets of the first and last items, if known.
-    // Set during population, used to determine if we are at the beginning
-    // or end of the pager data set during touch scrolling.
     private float mFirstOffset = -Float.MAX_VALUE;
     private float mLastOffset = Float.MAX_VALUE;
 
@@ -252,6 +242,7 @@ class BaseViewPager extends ViewGroup {
          * @param oldAdapter the previously set adapter
          * @param newAdapter the newly set adapter
          */
+        
         void onAdapterChanged(@NonNull BaseViewPager viewPager,
                               @Nullable PagerAdapter oldAdapter, @Nullable PagerAdapter newAdapter);
     }
@@ -454,7 +445,9 @@ class BaseViewPager extends ViewGroup {
      *
      * @return The currently registered PagerAdapter
      */
-    public PagerAdapter getAdapter() { return mAdapter; }
+    public PagerAdapter getAdapter() {
+        return mAdapter;
+    }
 
     /**
      * Add a listener that will be invoked whenever the adapter for this ViewPager changes.
@@ -499,7 +492,9 @@ class BaseViewPager extends ViewGroup {
         setCurrentItemInternal(item, smoothScroll, false);
     }
 
-    public int getCurrentItem() { return mCurItem; }
+    public int getCurrentItem() {
+        return mCurItem;
+    }
 
     void setCurrentItemInternal(int item, boolean smoothScroll, boolean always) {
         setCurrentItemInternal(item, smoothScroll, always, 0);
@@ -618,52 +613,17 @@ class BaseViewPager extends ViewGroup {
         }
     }
 
-    /**
-     * Sets a {@link PageTransformer} that will be called for each attached page whenever
-     * the scroll position is changed. This allows the application to apply custom property
-     * transformations to each page, overriding the default sliding behavior.
-     *
-     * <p><em>Note:</em> Prior to Android 3.0 the property animation APIs did not exist.
-     * As a result, setting a PageTransformer prior to Android 3.0 (API 11) will have no effect.
-     * By default, calling this method will cause contained pages to use
-     * {@link ViewCompat#LAYER_TYPE_HARDWARE}. This layer type allows custom alpha transformations,
-     * but it will cause issues if any of your pages contain a {@link android.view.SurfaceView}
-     * and you have not called {@link android.view.SurfaceView#setZOrderOnTop(boolean)} to put that
-     * {@link android.view.SurfaceView} above your app content. To disable this behavior, call
-     * {@link #setPageTransformer(boolean,PageTransformer,int)} and pass
-     * {@link ViewCompat#LAYER_TYPE_NONE} for {@code pageLayerType}.</p>
-     *
-     * @param reverseDrawingOrder true if the supplied PageTransformer requires page views
-     *                            to be drawn from last to first instead of first to last.
-     * @param transformer PageTransformer that will modify each page's animation properties
-     */
-    public void setPageTransformer(boolean reverseDrawingOrder, PageTransformer transformer) {
+
+    public void setPageTransformer(boolean reverseDrawingOrder, ViewPager.PageTransformer transformer) {
         setPageTransformer(reverseDrawingOrder, transformer, ViewCompat.LAYER_TYPE_HARDWARE);
     }
 
-    /**
-     * Sets a {@link PageTransformer} that will be called for each attached page whenever
-     * the scroll position is changed. This allows the application to apply custom property
-     * transformations to each page, overriding the default sliding behavior.
-     *
-     * <p><em>Note:</em> Prior to Android 3.0 ({@link Build.VERSION_CODES#HONEYCOMB API 11}),
-     * the property animation APIs did not exist. As a result, setting a PageTransformer prior
-     * to API 11 will have no effect.</p>
-     *
-     * @param reverseDrawingOrder true if the supplied PageTransformer requires page views
-     *                            to be drawn from last to first instead of first to last.
-     * @param transformer PageTransformer that will modify each page's animation properties
-     * @param pageLayerType View layer type that should be used for ViewPager pages. It should be
-     *                      either {@link ViewCompat#LAYER_TYPE_HARDWARE},
-     *                      {@link ViewCompat#LAYER_TYPE_SOFTWARE}, or
-     *                      {@link ViewCompat#LAYER_TYPE_NONE}.
-     */
-    public void setPageTransformer(boolean reverseDrawingOrder, PageTransformer transformer,
+
+    public void setPageTransformer(boolean reverseDrawingOrder, ViewPager.PageTransformer transformer,
                                    int pageLayerType) {
         if (Build.VERSION.SDK_INT >= 11) {
             final boolean hasTransformer = transformer != null;
-            @SuppressWarnings("DoubleNegation")
-            final boolean needsPopulate = hasTransformer != (mPageTransformer != null);
+            @SuppressWarnings("DoubleNegation") final boolean needsPopulate = hasTransformer != (mPageTransformer != null);
             mPageTransformer = transformer;
             setChildrenDrawingOrderEnabledCompat(hasTransformer);
             if (hasTransformer) {
@@ -720,7 +680,9 @@ class BaseViewPager extends ViewGroup {
      * @return How many pages will be kept offscreen on either side
      * @see #setOffscreenPageLimit(int)
      */
-    public int getOffscreenPageLimit() { return mOffscreenPageLimit; }
+    public int getOffscreenPageLimit() {
+        return mOffscreenPageLimit;
+    }
 
     /**
      * Set the number of pages that should be retained to either side of the
@@ -779,7 +741,9 @@ class BaseViewPager extends ViewGroup {
      *
      * @return The size of the margin in pixels
      */
-    public int getPageMargin() { return mPageMargin; }
+    public int getPageMargin() {
+        return mPageMargin;
+    }
 
     /**
      * Set a drawable that will be used to fill the margin between pages.
@@ -1011,7 +975,9 @@ class BaseViewPager extends ViewGroup {
         }
     }
 
-    void populate() { populate(mCurItem); }
+    void populate() {
+        populate(mCurItem);
+    }
 
     void populate(int newCurrentItem) {
         if (isVerticalDirection()) {
@@ -2409,8 +2375,8 @@ class BaseViewPager extends ViewGroup {
     private void enableLayers(boolean enable) {
         final int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            final int layerType = enable
-                    ? mPageTransformerLayerType : ViewCompat.LAYER_TYPE_NONE;
+
+            final int layerType = enable ? mPageTransformerLayerType : View.LAYER_TYPE_NONE;
             ViewCompat.setLayerType(getChildAt(i), layerType, null);
         }
     }
@@ -2454,13 +2420,13 @@ class BaseViewPager extends ViewGroup {
                  */
 
                 /*
-                * Locally do absolute value. mLastMotionY is set to the y value
-                * of the down event.
-                */
+                 * Locally do absolute value. mLastMotionY is set to the y value
+                 * of the down event.
+                 */
                 final int activePointerId = mActivePointerId;
                 if (activePointerId == INVALID_POINTER) {
                     // If we don't have a valid id, the touch down wasn't on content.
-                 break;
+                    break;
                 }
 
                 final int pointerIndex = ev.findPointerIndex(activePointerId);
@@ -3417,7 +3383,9 @@ class BaseViewPager extends ViewGroup {
      * @see #fakeDragBy(float)
      * @see #endFakeDrag()
      */
-    public boolean isFakeDragging() { return mFakeDragging; }
+    public boolean isFakeDragging() {
+        return mFakeDragging;
+    }
 
     private void onSecondaryPointerUp(MotionEvent ev) {
         final int pointerIndex = MotionEventCompat.getActionIndex(ev);
@@ -3468,7 +3436,7 @@ class BaseViewPager extends ViewGroup {
      *
      * @param direction Negative to check scrolling left, positive to check scrolling right.
      * @return Whether this ViewPager can be scrolled in the specified direction. It will always
-     *         return false if the specified direction is 0.
+     * return false if the specified direction is 0.
      */
     public boolean canScrollHorizontally(int direction) {
         if (mAdapter == null || direction == 0) {
@@ -3489,7 +3457,7 @@ class BaseViewPager extends ViewGroup {
      *
      * @param direction Negative to check scrolling up, positive to check scrolling down.
      * @return Whether this ViewPager can be scrolled in the specified direction. It will always
-     *         return false if the specified direction is 0.
+     * return false if the specified direction is 0.
      */
     public boolean canScrollVertically(int direction) {
         if (mAdapter == null || direction == 0) {
@@ -3508,12 +3476,12 @@ class BaseViewPager extends ViewGroup {
     /**
      * Tests scrollability within child views of v given a delta of dx.
      *
-     * @param v View to test for horizontal scrollability
+     * @param v      View to test for horizontal scrollability
      * @param checkV Whether the view v passed should itself be checked for scrollability (true),
      *               or just its children (false).
-     * @param dx Delta scrolled in pixels
-     * @param x X coordinate of the active touch point
-     * @param y Y coordinate of the active touch point
+     * @param dx     Delta scrolled in pixels
+     * @param x      X coordinate of the active touch point
+     * @param y      Y coordinate of the active touch point
      * @return true if child views of v can be scrolled by delta of dx.
      */
     protected boolean canScrollHorizontally(View v, boolean checkV, int dx, int x, int y) {
@@ -3601,9 +3569,9 @@ class BaseViewPager extends ViewGroup {
                     if (Build.VERSION.SDK_INT >= 11) {
                         // The focus finder had a bug handling FOCUS_FORWARD and FOCUS_BACKWARD
                         // before Android 3.0. Ignore the tab key on those devices.
-                        if (KeyEventCompat.hasNoModifiers(event)) {
+                        if (event.hasNoModifiers()) {
                             handled = arrowScroll(FOCUS_FORWARD);
-                        } else if (KeyEventCompat.hasModifiers(event, KeyEvent.META_SHIFT_ON)) {
+                        } else if (event.hasModifiers(KeyEvent.META_SHIFT_ON)) {
                             handled = arrowScroll(FOCUS_BACKWARD);
                         }
                     }
@@ -3888,7 +3856,9 @@ class BaseViewPager extends ViewGroup {
     }
 
     @Override
-    protected ViewGroup.LayoutParams generateDefaultLayoutParams() { return new LayoutParams(); }
+    protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
+        return new LayoutParams();
+    }
 
     @Override
     protected ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams p) {
@@ -3994,6 +3964,7 @@ class BaseViewPager extends ViewGroup {
         public void onChanged() {
             dataSetChanged();
         }
+
         @Override
         public void onInvalidated() {
             dataSetChanged();
