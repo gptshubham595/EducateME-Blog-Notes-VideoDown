@@ -47,6 +47,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
@@ -72,6 +73,7 @@ import downloader.video.xvlover.videodownloader.utils.AdBlock;
 import downloader.video.xvlover.videodownloader.utils.IOUtils;
 import downloader.video.xvlover.videodownloader.utils.iUtils;
 
+import static android.provider.LiveFolders.INTENT;
 import static downloader.video.xvlover.videodownloader.utils.iUtils.GetSessionID;
 
 
@@ -420,7 +422,7 @@ public class MainActivity extends AppCompatActivity
                 }
                 if (url.startsWith("intent://")) {
                     try {
-                        Intent furl = Intent.parseUri(url, 1);
+                        Intent furl = Intent.parseUri(url, Intent.URI_ALLOW_UNSAFE);
                         if (getPackageManager().getLaunchIntentForPackage(furl.getPackage()) != null) {
                             startActivity(furl);
                             return true;
@@ -436,7 +438,7 @@ public class MainActivity extends AppCompatActivity
 
                 } else if (url.startsWith("market://")) {
                     try {
-                        Intent r1 = Intent.parseUri(url, 1);
+                        Intent r1 = Intent.parseUri(url, Intent.URI_ALLOW_UNSAFE);
                         if (r1 == null) {
                             return true;
                         }
@@ -464,7 +466,7 @@ public class MainActivity extends AppCompatActivity
                 }
                 if (url.startsWith("intent://")) {
                     try {
-                        Intent furl = Intent.parseUri(url, 1);
+                        Intent furl = Intent.parseUri(url, Intent.URI_ALLOW_UNSAFE);
                         if (getPackageManager().getLaunchIntentForPackage(furl.getPackage()) != null) {
                             startActivity(furl);
                             return true;
@@ -480,7 +482,7 @@ public class MainActivity extends AppCompatActivity
 
                 } else if (url.startsWith("market://")) {
                     try {
-                        Intent r1 = Intent.parseUri(url, 1);
+                        Intent r1 = Intent.parseUri(url, Intent.URI_ALLOW_UNSAFE);
                         if (r1 == null) {
                             return true;
                         }
@@ -749,7 +751,7 @@ public class MainActivity extends AppCompatActivity
                 webView.loadUrl("");
                 webView.stopLoading();
 
-                android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(MainActivity.this)
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
                         .setTitle("EducateMe")
                         .setMessage("Thank You for Using")
                         .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
