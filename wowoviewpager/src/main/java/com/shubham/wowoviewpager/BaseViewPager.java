@@ -242,7 +242,7 @@ class BaseViewPager extends ViewGroup {
          * @param oldAdapter the previously set adapter
          * @param newAdapter the newly set adapter
          */
-        
+
         void onAdapterChanged(@NonNull BaseViewPager viewPager,
                               @Nullable PagerAdapter oldAdapter, @Nullable PagerAdapter newAdapter);
     }

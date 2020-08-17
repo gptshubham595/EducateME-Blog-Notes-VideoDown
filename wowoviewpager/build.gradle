@@ -51,8 +51,6 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    androidTestImplementation 'org.junit.jupiter:junit-jupiter'
     androidTestImplementation 'junit:junit:4.12'
 }
 

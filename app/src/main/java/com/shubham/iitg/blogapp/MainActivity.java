@@ -20,6 +20,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -417,8 +419,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     //Fragment transition to change fragment when pressed
-    private void replaceFragment(androidx.core.app.Fragment fragment) {
-        androidx.core.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+    private void replaceFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container, fragment);
         fragmentTransaction.commit();
     }
