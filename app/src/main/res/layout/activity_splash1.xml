@@ -7,7 +7,7 @@
     tools:context=".activity.Splash1"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.core.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id = "@+id/view_pager"
         android:layout_width = "match_parent"
         android:layout_height = "match_parent"

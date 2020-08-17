@@ -12,14 +12,6 @@ import com.shubham.wowoviewpager.Animation.WoWoAnimationInterface;
 import com.shubham.wowoviewpager.R;
 
 
-/**
- * Created by Weiping Huang at 11:24 on 2017/4/1
- * For Personal Open Source
- * Contact me at 2584541288@qq.com or nightonke@outlook.com
- * For more projects: https://github.com/Nightonke
- *
- * Modified from https://github.com/Cutta/GifView
- */
 
 public class WoWoGifView extends View implements WoWoAnimationInterface {
 

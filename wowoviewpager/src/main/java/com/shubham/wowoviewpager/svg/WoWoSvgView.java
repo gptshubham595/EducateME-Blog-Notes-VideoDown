@@ -13,9 +13,6 @@ import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -23,18 +20,13 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.shubham.wowoviewpager.Animation.WoWoAnimationInterface;
 import com.shubham.wowoviewpager.R;
 
-
-/**
- * Created by Weiping Huang at 09:16 on 2017/4/1
- * For Personal Open Source
- * Contact me at 2584541288@qq.com or nightonke@outlook.com
- * For more projects: https://github.com/Nightonke
- *
- * Modified from https://github.com/jrummyapps/AnimatedSvgView.
- */
 
 public class WoWoSvgView extends View implements WoWoAnimationInterface {
 
@@ -42,7 +34,9 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
 
     private static final Interpolator INTERPOLATOR = new DecelerateInterpolator();
 
-    private static float constrain(float min, float max, float v) { return Math.max(min, Math.min(max, v)); }
+    private static float constrain(float min, float max, float v) {
+        return Math.max(min, Math.min(max, v));
+    }
 
     private float mProcess = 0;
     private int mTraceTime = 2000;
@@ -255,10 +249,8 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
      * Set the viewport width and height of the SVG. This can be found in the viewBox in the SVG. This is not the size
      * of the view.
      *
-     * @param viewportWidth
-     *     the width
-     * @param viewportHeight
-     *     the height
+     * @param viewportWidth  the width
+     * @param viewportHeight the height
      */
     public void setViewportSize(float viewportWidth, float viewportHeight) {
         mViewportWidth = viewportWidth;
@@ -272,8 +264,7 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
     /**
      * Set the SVG path data.
      *
-     * @param glyphStrings
-     *     The path strings found in the SVG.
+     * @param glyphStrings The path strings found in the SVG.
      */
     public void setGlyphStrings(@NonNull String... glyphStrings) {
         mGlyphStrings = glyphStrings;
@@ -282,8 +273,7 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
     /**
      * Set the colors used during tracing the SVG
      *
-     * @param traceResidueColors
-     *     the colors. Should be the same length as the SVG paths.
+     * @param traceResidueColors the colors. Should be the same length as the SVG paths.
      */
     public void setTraceResidueColors(@NonNull int[] traceResidueColors) {
         mTraceResidueColors = traceResidueColors;
@@ -292,8 +282,7 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
     /**
      * Set the colors used to trace the SVG.
      *
-     * @param traceColors
-     *     The colors. Should be the same length as the SVG paths.
+     * @param traceColors The colors. Should be the same length as the SVG paths.
      */
     public void setTraceColors(@NonNull int[] traceColors) {
         mTraceColors = traceColors;
@@ -302,8 +291,7 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
     /**
      * Set the colors for the SVG. This corresponds with each data path.
      *
-     * @param fillColors
-     *     The colors for each SVG data path.
+     * @param fillColors The colors for each SVG data path.
      */
     public void setFillColors(@NonNull int[] fillColors) {
         mFillColors = fillColors;
@@ -312,8 +300,7 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
     /**
      * Set the color used for tracing. This will be applied to all data paths.
      *
-     * @param color
-     *     The color
+     * @param color The color
      */
     public void setTraceResidueColor(@ColorInt int color) {
         if (mGlyphStrings == null) {
@@ -330,8 +317,7 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
     /**
      * Set the color used for tracing. This will be applied to all data paths.
      *
-     * @param color
-     *     The color
+     * @param color The color
      */
     public void setTraceColor(@ColorInt int color) {
         if (mGlyphStrings == null) {
@@ -348,8 +334,7 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
     /**
      * Set the color used for the icon. This will apply the color to all SVG data paths.
      *
-     * @param color
-     *     The color
+     * @param color The color
      */
     public void setFillColor(@ColorInt int color) {
         if (mGlyphStrings == null) {
@@ -366,8 +351,7 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
     /**
      * Set the animation trace time
      *
-     * @param traceTime
-     *     time in milliseconds
+     * @param traceTime time in milliseconds
      */
     public void setTraceTime(int traceTime) {
         mTraceTime = traceTime;
@@ -376,8 +360,7 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
     /**
      * Set the time used to trace each glyph
      *
-     * @param traceTimePerGlyph
-     *     time in milliseconds
+     * @param traceTimePerGlyph time in milliseconds
      */
     public void setTraceTimePerGlyph(int traceTimePerGlyph) {
         mTraceTimePerGlyph = traceTimePerGlyph;
@@ -386,8 +369,7 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
     /**
      * Set the time at which colors will start being filled after the tracing begins
      *
-     * @param fillStart
-     *     time in milliseconds
+     * @param fillStart time in milliseconds
      */
     public void setFillStart(int fillStart) {
         mFillStart = fillStart;
@@ -396,8 +378,7 @@ public class WoWoSvgView extends View implements WoWoAnimationInterface {
     /**
      * Set the time it takes to fill colors
      *
-     * @param fillTime
-     *     time in milliseconds
+     * @param fillTime time in milliseconds
      */
     public void setFillTime(int fillTime) {
         mFillTime = fillTime;

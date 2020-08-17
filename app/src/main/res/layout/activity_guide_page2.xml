@@ -51,7 +51,7 @@
             app:met_primaryColor="@android:color/black"
             app:met_singleLineEllipsis="true" />
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="200dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="90dp"
@@ -73,7 +73,7 @@
                 android:visibility="visible"
                 android:layout_height="wrap_content"
                 />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <Button

@@ -1,18 +1,7 @@
 package com.shubham.wowoviewpager.Enum;
 
-/**
- * Created by Weiping Huang at 14:24 on 2017/3/30
- * For Personal Open Source
- * Contact me at 2584541288@qq.com or nightonke@outlook.com
- * For more projects: https://github.com/Nightonke
- */
-
 public class WoWoTypewriter {
 
-    /**
-     * ABC->123:
-     * ABC->AB->A->{empty}->1->12->123
-     */
     public static final Typewriter DeleteThenType = new Typewriter() {
         @Override
         public String type(String fromText, String toText, float offset) {

@@ -5,36 +5,12 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-/**
- * Created by Weiping Huang at 09:08 on 2017/4/1
- * For Personal Open Source
- * Contact me at 2584541288@qq.com or nightonke@outlook.com
- * For more projects: https://github.com/Nightonke
- *
- * Code copied from android.support.graphics.drawable.PathParser.
- */
 
 class WoWoPathParser {
 
     private static final String TAG = "WoWoPathParser";
 
-    // Copy from Arrays.copyOfRange() which is only available from API level 9.
-
-    /**
-     * Copies elements from {@code original} into a new array, from indexes start (inclusive) to
-     * end (exclusive). The original order of elements is preserved.
-     * If {@code end} is greater than {@code original.length}, the result is padded
-     * with the value {@code 0.0f}.
-     *
-     * @param original the original array
-     * @param start    the start index, inclusive
-     * @param end      the end index, exclusive
-     * @return the new array
-     * @throws ArrayIndexOutOfBoundsException if {@code start < 0 || start > original.length}
-     * @throws IllegalArgumentException       if {@code start > end}
-     * @throws NullPointerException           if {@code original == null}
-     */
-    private static float[] copyOfRange(float[] original, int start, int end) {
+      private static float[] copyOfRange(float[] original, int start, int end) {
         if (start > end) {
             throw new IllegalArgumentException();
         }

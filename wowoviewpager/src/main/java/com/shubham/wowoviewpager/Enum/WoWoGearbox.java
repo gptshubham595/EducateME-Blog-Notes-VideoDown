@@ -1,11 +1,5 @@
 package com.shubham.wowoviewpager.Enum;
 
-/**
- * Created by Weiping Huang at 10:56 on 2017/4/6
- * For Personal Open Source
- * Contact me at 2584541288@qq.com or nightonke@outlook.com
- * For more projects: https://github.com/Nightonke
- */
 
 public class WoWoGearbox implements Gearbox {
 

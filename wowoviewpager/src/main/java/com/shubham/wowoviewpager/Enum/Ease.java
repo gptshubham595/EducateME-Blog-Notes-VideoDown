@@ -10,13 +10,6 @@ import static java.lang.Math.pow;
 import static java.lang.Math.sin;
 
 
-/**
- * Created by Weiping Huang at 02:20 on 2017/3/29
- * For Personal Open Source
- * Contact me at 2584541288@qq.com or nightonke@outlook.com
- * For more projects: https://github.com/Nightonke
- */
-
 public class Ease implements TimeInterpolator {
 
     private static final int EaseTypesNumber = 31;
